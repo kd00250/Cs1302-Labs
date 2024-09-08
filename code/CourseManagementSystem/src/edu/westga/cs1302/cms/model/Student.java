@@ -29,10 +29,11 @@ public class Student {
 		if (grade <= 0) {
 			throw new IllegalArgumentException("Grade must be greater than 0");
 		}
-		if (grade >= 100) {
+		if (grade > 100) {
 			throw new IllegalArgumentException("Grade must be not be greater than 100");
 		}
 		this.name = name;
+		this.grade = grade;
 	}
 	
 	/** Return the name of the student
@@ -43,6 +44,14 @@ public class Student {
 		return this.name;
 	}
 	
+	/** Return the name of the student
+	 * 
+	 * @return the name of the student
+	 */
+	public int getGrade() {
+		return this.grade;
+	}
+
 	@Override
 	public String toString() {
 		return this.name;

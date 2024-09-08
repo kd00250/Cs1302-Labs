@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  * Code behind for the MainWindow of the application
@@ -32,12 +33,12 @@ public class MainWindow {
 		} catch (NumberFormatException errorNum) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
 			errorPopup.setContentText(
-					"Unable to create student: " + errorNum.getMessage() + "Please reenter grade and try again");
+					"Unable to create student: " + errorNum.getMessage() + " Please reenter grade and try again");
 			errorPopup.showAndWait();
 		} catch (IllegalArgumentException errorObject) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
 			errorPopup.setContentText(
-					"Unable to create student: " + errorObject.getMessage() + "Please reenter name and try again");
+					"Unable to create student: " + errorObject.getMessage() + " Please reenter name and try again");
 			errorPopup.showAndWait();
 		}
 	}
@@ -49,15 +50,30 @@ public class MainWindow {
 			this.students.getItems().remove(student);
 		} else {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-			errorPopup.setContentText("No student slected. Unable to remove.");
+			errorPopup.setContentText("No student selected. Unable to remove.");
 			errorPopup.showAndWait();
 		}
 
 	}
+	
+	@FXML
+    void displayStudent(MouseEvent event) {
+		Student student = this.students.getSelectionModel().getSelectedItem();
+		if (student != null) {
+			String grade = String.valueOf(student.getGrade());
+			this.name.setText(student.getName());
+			this.grade.setText(grade);
+		} else {
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText("No students in the list. Unable to select nothing. Please enter a student name and grade and try again.");
+			errorPopup.showAndWait();
+		}
+		
+    }
 
 	@FXML
 	void initialize() {
-		assert grade != null : "fx:id=\"grade\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.grade != null : "fx:id=\"grade\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert this.name != null : "fx:id=\"name\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert this.students != null : "fx:id=\"students\" was not injected: check your FXML file 'MainWindow.fxml'.";
 

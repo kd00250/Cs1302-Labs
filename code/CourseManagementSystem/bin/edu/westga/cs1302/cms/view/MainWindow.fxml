@@ -8,12 +8,12 @@
 
 <AnchorPane minHeight="300.0" minWidth="289.0" prefHeight="343.0" prefWidth="289.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.cms.view.MainWindow">
    <children>
-      <Button layoutX="229.0" layoutY="87.0" mnemonicParsing="false" onAction="#removeStudent" text="-" />
-      <Button layoutX="229.0" layoutY="38.0" mnemonicParsing="false" onAction="#addStudent" text="+" />
+      <Button layoutX="227.0" layoutY="75.0" mnemonicParsing="false" onAction="#removeStudent" prefHeight="25.0" prefWidth="32.0" text="-" />
+      <Button layoutX="227.0" layoutY="38.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="32.0" text="+" />
       <TextField fx:id="name" layoutX="15.0" layoutY="25.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Name" />
       <Label layoutX="99.0" layoutY="5.0" text="Name" />
-      <ListView fx:id="students" layoutX="15.0" layoutY="129.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextField fx:id="grade" layoutX="11.0" layoutY="86.0" prefHeight="26.0" prefWidth="200.0" promptText="Enter Grade" />
+      <ListView fx:id="students" layoutX="15.0" layoutY="129.0" onMouseClicked="#displayStudent" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="grade" layoutX="17.0" layoutY="87.0" prefHeight="26.0" prefWidth="200.0" promptText="Enter Grade" />
       <Label layoutX="101.0" layoutY="64.0" text="Grade" />
    </children>
 </AnchorPane>
