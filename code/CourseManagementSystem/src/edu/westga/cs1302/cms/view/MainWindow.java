@@ -1,5 +1,7 @@
 package edu.westga.cs1302.cms.view;
 
+import java.text.DecimalFormat;
+
 import edu.westga.cs1302.cms.model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,12 +22,13 @@ public class MainWindow {
 	@FXML
 	private TextField name;
 	@FXML
+	private TextField averageGrade;
+	@FXML
 	private ListView<Student> students;
 
 	@FXML
 	void addStudent(ActionEvent event) {
 		String studentName = this.name.getText();
-		// int grade = Integer.parseInt(this.grade.getText());
 		try {
 			int grade = Integer.parseInt(this.grade.getText());
 			Student student = new Student(studentName, grade);
@@ -55,9 +58,9 @@ public class MainWindow {
 		}
 
 	}
-	
+
 	@FXML
-    void displayStudent(MouseEvent event) {
+	void displayStudent(MouseEvent event) {
 		Student student = this.students.getSelectionModel().getSelectedItem();
 		if (student != null) {
 			String grade = String.valueOf(student.getGrade());
@@ -65,11 +68,34 @@ public class MainWindow {
 			this.grade.setText(grade);
 		} else {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-			errorPopup.setContentText("No students in the list. Unable to select nothing. Please enter a student name and grade and try again.");
+			errorPopup.setContentText(
+					"No students in the list. Unable to select nothing. Please enter a student name and grade and try again.");
 			errorPopup.showAndWait();
 		}
-		
-    }
+
+	}
+
+	@FXML
+	void calculateAverageGrade(ActionEvent event) {
+		DecimalFormat df = new DecimalFormat("#.00");
+		this.averageGrade.setEditable(false);
+		double average = 0.0;
+		if (!this.students.getItems().isEmpty()) {
+			for (Student currentStudent : this.students.getItems()) {
+				average += currentStudent.getGrade();
+			}
+
+		} else {
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText(
+					"No students in the list. Unable to calculate average. Please enter a student name and grade and try again.");
+			errorPopup.showAndWait();
+		}
+		average = average / this.students.getItems().size();
+		df.format(average);
+		this.averageGrade.setText(df.format(average));
+
+	}
 
 	@FXML
 	void initialize() {
