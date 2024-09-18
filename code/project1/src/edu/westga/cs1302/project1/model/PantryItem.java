@@ -10,11 +10,12 @@ public class PantryItem {
 	
 	private final String name;
 	private final String type;
+	private int quantity;
 	
 	/**
 	 * creates a new pantry item with the name
 	 * 
-	 * @precondition name != null && type != null
+	 * @precondition name != null && type != null && quantity > 0
 	 * @postcondition getName() == name && getType() == type
 	 * 
 	 * @param name the name of the item
@@ -30,6 +31,7 @@ public class PantryItem {
 		
 		this.name = name;
 		this.type = type;
+		this.quantity = 0;
 		
 	}
 	
@@ -55,6 +57,23 @@ public class PantryItem {
 	 */
 	public String getType() {
 		return this.type;
+	}
+	
+	/**
+	 * Return the quantity for the pantry item
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the quantity for the pantry item
+	 */
+	public int getQuantity() {
+		return this.quantity;
+	}
+	
+	@Override
+	public String toString() {
+		return this.name + "- " + this.quantity;
 	}
 
 }
