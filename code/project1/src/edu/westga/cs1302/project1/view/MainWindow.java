@@ -29,6 +29,9 @@ public class MainWindow {
 	private ListView<PantryItem> food;
 
 	@FXML
+	private TextField quantity;
+
+	@FXML
 	private TextField name;
 
 	@FXML
@@ -47,6 +50,21 @@ public class MainWindow {
 					+ " Please reenter the information and try again");
 			errorPopup.showAndWait();
 		}
+
+	}
+
+	@FXML
+	void decrementQuantity(ActionEvent event) {
+
+	}
+
+	@FXML
+	void incrementQuantity(ActionEvent event) {
+
+	}
+
+	@FXML
+	void setQuantity(ActionEvent event) {
 
 	}
 
