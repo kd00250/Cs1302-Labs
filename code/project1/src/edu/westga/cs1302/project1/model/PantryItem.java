@@ -25,6 +25,9 @@ public class PantryItem {
 		if (name == null) {
 			throw new IllegalArgumentException("Name cannot be null.");
 		}
+		if (name.length() < 3) {
+			throw new IllegalArgumentException("Name must have at least 3 characters.");
+		}
 		if (type == null) {
 			throw new IllegalArgumentException("Type cannot be null.");
 		}
@@ -110,7 +113,7 @@ public class PantryItem {
 	 * @return the quantity one lower than it was previously
 	 */
 	public int decrementQuantity() {
-		if (quantity == 0) {
+		if (this.quantity == 0) {
 			throw new IllegalArgumentException("Quantity is already 0 and cannot go below 0.");
 		}
 

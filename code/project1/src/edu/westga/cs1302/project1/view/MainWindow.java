@@ -46,8 +46,8 @@ public class MainWindow {
 			this.food.getItems().add(item);
 		} catch (IllegalArgumentException errorObject) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-			errorPopup.setContentText("Unable to create food item " + errorObject.getMessage()
-					+ " Please reenter the information and try again");
+			errorPopup.setContentText("Unable to create food item. " + errorObject.getMessage()
+					+ " Please reenter the information and try again.");
 			errorPopup.showAndWait();
 		}
 
@@ -55,16 +55,49 @@ public class MainWindow {
 
 	@FXML
 	void decrementQuantity(ActionEvent event) {
-
+		PantryItem selectedFood = this.food.getSelectionModel().getSelectedItem();
+		try {
+			selectedFood.decrementQuantity();
+		} catch (IllegalArgumentException errorObject) {
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText("Unable to subtract 1 from selected item quantity. " + errorObject.getMessage()
+					+ " Please reenter the information and try again.");
+			errorPopup.showAndWait();
+		} catch (NullPointerException errorObject) {
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText("Cannot subtract from quantity. No food item selected. Select a food item and try again.");
+			errorPopup.showAndWait();
+		}
 	}
 
 	@FXML
 	void incrementQuantity(ActionEvent event) {
+		PantryItem selectedFood = this.food.getSelectionModel().getSelectedItem();
+		try {
+			selectedFood.incrementQuantity();
+		} catch (NullPointerException errorObject) {
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText("Cannot add to quantity. No food item selected. Select a food item and try again.");
+			errorPopup.showAndWait();
+		}
 
 	}
 
 	@FXML
 	void setQuantity(ActionEvent event) {
+		PantryItem selectedFood = this.food.getSelectionModel().getSelectedItem();
+		try {
+			int newQuantity = Integer.parseInt(this.quantity.getText());
+			selectedFood.setQuantity(newQuantity);
+		} catch (NumberFormatException errorNum) {
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText("Cannot set quantity. Enter a quantity value and try again.");
+			errorPopup.showAndWait();
+		} catch (NullPointerException errorObject) {
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText("Cannot set quantity. No food item selected. Select a food item and try again.");
+			errorPopup.showAndWait();
+		}
 
 	}
 
