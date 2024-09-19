@@ -122,6 +122,11 @@ public class MainWindow {
 	}
 
 	@FXML
+	void countTotalItems(ActionEvent event) {
+
+	}
+
+	@FXML
 	void initialize() {
 		String[] types = { "Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient" };
 		this.type.getItems().addAll(types);
