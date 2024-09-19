@@ -65,7 +65,8 @@ public class MainWindow {
 			errorPopup.showAndWait();
 		} catch (NullPointerException errorObject) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-			errorPopup.setContentText("Cannot subtract from quantity. No food item selected. Select a food item and try again.");
+			errorPopup.setContentText(
+					"Cannot subtract from quantity. No food item selected. Select a food item and try again.");
 			errorPopup.showAndWait();
 		}
 	}
@@ -77,7 +78,8 @@ public class MainWindow {
 			selectedFood.incrementQuantity();
 		} catch (NullPointerException errorObject) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-			errorPopup.setContentText("Cannot add to quantity. No food item selected. Select a food item and try again.");
+			errorPopup
+					.setContentText("Cannot add to quantity. No food item selected. Select a food item and try again.");
 			errorPopup.showAndWait();
 		}
 
@@ -103,6 +105,20 @@ public class MainWindow {
 					+ " Please reenter the information and try again.");
 			errorPopup.showAndWait();
 		}
+	}
+
+	@FXML
+	void removeSelectedFood(ActionEvent event) {
+		PantryItem selectedFood = this.food.getSelectionModel().getSelectedItem();
+		if (selectedFood != null) {
+			this.food.getItems().remove(selectedFood);
+		} else {
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup
+					.setContentText("Cannot remove food. There is no food selected. Select a food item and try again.");
+			errorPopup.showAndWait();
+		}
+
 	}
 
 	@FXML
