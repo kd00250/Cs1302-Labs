@@ -85,7 +85,7 @@ public class PantryItem {
 	 */
 	public int setQuantity(int quantity) {
 		if (quantity < 0) {
-			throw new IllegalArgumentException("Quantity cannot be less than zero");
+			throw new IllegalArgumentException("Quantity cannot be less than zero.");
 		}
 		
 		this.quantity = quantity;

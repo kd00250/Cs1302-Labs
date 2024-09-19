@@ -97,8 +97,12 @@ public class MainWindow {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
 			errorPopup.setContentText("Cannot set quantity. No food item selected. Select a food item and try again.");
 			errorPopup.showAndWait();
+		} catch (IllegalArgumentException errorObject) {
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText("Unable to set item quantity. " + errorObject.getMessage()
+					+ " Please reenter the information and try again.");
+			errorPopup.showAndWait();
 		}
-
 	}
 
 	@FXML
