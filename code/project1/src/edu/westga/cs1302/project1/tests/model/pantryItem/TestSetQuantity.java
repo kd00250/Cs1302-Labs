@@ -16,7 +16,7 @@ class TestSetQuantity {
 			item.setQuantity(-1);
 		});
 	}
-	
+
 	@Test
 	void testSetValidQuantity() {
 		PantryItem item = new PantryItem("Apple", "Fruit");

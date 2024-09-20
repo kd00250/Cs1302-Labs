@@ -40,6 +40,9 @@ public class Utility {
 	 * @return the sum of all quantities in the list view
 	 */
 	public static int getTotalQuantity(ArrayList<PantryItem> food) {
+		if (food.isEmpty()) {
+			throw new IllegalArgumentException("The List cannot be empty.");
+		}
 		int sum = 0;
 		for (PantryItem currentItem : food) {
 			sum += currentItem.getQuantity();

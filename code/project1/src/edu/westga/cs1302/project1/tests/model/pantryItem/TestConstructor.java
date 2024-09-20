@@ -14,7 +14,7 @@ class TestConstructor {
 			new PantryItem(null, "Fruit");
 		});
 	}
-	
+
 	@Test
 	void testNotLongEnoughName() {
 		assertThrows(IllegalArgumentException.class, () -> {

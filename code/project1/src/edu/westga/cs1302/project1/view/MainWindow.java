@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import edu.westga.cs1302.project1.model.PantryItem;
+import edu.westga.cs1302.project1.model.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -123,9 +124,16 @@ public class MainWindow {
 
 	@FXML
 	void countTotalItems(ActionEvent event) {
- //		Alert sumPopup = new Alert(Alert.AlertType.INFORMATION);
- //		sumPopup.setContentText("Total Quantity of items: " + sum);
- //		sumPopup.showAndWait();
+		try {
+			Alert sumPopup = new Alert(Alert.AlertType.INFORMATION);
+			sumPopup.setContentText("Total Quantity of items: " + Utility.getTotalQuantityOfItems(this.food));
+			sumPopup.showAndWait();
+		} catch (IllegalArgumentException errorObject) {
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText(
+					"Cannot count total quantity." + errorObject.getMessage() + " Add a food item and try again.");
+			errorPopup.showAndWait();
+		}
 
 	}
 

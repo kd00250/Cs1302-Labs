@@ -1,6 +1,7 @@
 package edu.westga.cs1302.project1.tests.model.pantryItem;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 import java.util.ArrayList;
 
@@ -17,10 +18,10 @@ class TestGetTotalQuantity {
 		ArrayList<PantryItem> foodItems = new ArrayList<PantryItem>();
 		item.incrementQuantity();
 		foodItems.add(item);
-		
+
 		assertEquals(1, Utility.getTotalQuantity(foodItems));
 	}
-	
+
 	@Test
 	void testMultipleItemQuantity() {
 		PantryItem item1 = new PantryItem("Apple", "Fruit");
@@ -30,8 +31,15 @@ class TestGetTotalQuantity {
 		item2.setQuantity(14);
 		foodItems.add(item1);
 		foodItems.add(item2);
-		
+
 		assertEquals(15, Utility.getTotalQuantity(foodItems));
 	}
 
+	@Test
+	void testEmptyListQuantity() {
+		ArrayList<PantryItem> foodItems = new ArrayList<PantryItem>();
+		assertThrows(IllegalArgumentException.class, () -> {
+			Utility.getTotalQuantity(foodItems);
+		});
+	}
 }
