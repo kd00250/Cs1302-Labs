@@ -123,6 +123,9 @@ public class MainWindow {
 
 	@FXML
 	void countTotalItems(ActionEvent event) {
+ //		Alert sumPopup = new Alert(Alert.AlertType.INFORMATION);
+ //		sumPopup.setContentText("Total Quantity of items: " + sum);
+ //		sumPopup.showAndWait();
 
 	}
 
