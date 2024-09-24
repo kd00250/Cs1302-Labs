@@ -33,13 +33,14 @@ public class Utility {
 	/**
 	 * Gets the total sum of all quantities in the list view
 	 * 
-	 * @precondition non
+	 * @precondition !food.isEmpty()
 	 * @postcondition none
+	 * @throws IllegalArgumentException violates precondition
 	 * 
 	 * @param food the array list of food
 	 * @return the sum of all quantities in the list view
 	 */
-	public static int getTotalQuantity(ArrayList<PantryItem> food) {
+	public static int getTotalQuantity(ArrayList<PantryItem> food) throws IllegalArgumentException {
 		if (food.isEmpty()) {
 			throw new IllegalArgumentException("The List cannot be empty.");
 		}

@@ -17,11 +17,12 @@ public class PantryItem {
 	 * 
 	 * @precondition name != null && type != null
 	 * @postcondition getName() == name && getType() == type
+	 * @throws IllegalArgumentException violates precondition
 	 * 
 	 * @param name the name of the item
 	 * @param type the type of item
 	 */
-	public PantryItem(String name, String type) {
+	public PantryItem(String name, String type) throws IllegalArgumentException {
 		if (name == null) {
 			throw new IllegalArgumentException("Name cannot be null.");
 		}
@@ -79,11 +80,13 @@ public class PantryItem {
 	 * 
 	 * @precondition quantity > 0
 	 * @postcondition none
+	 * @throws IllegalArgumentException violates precondition
+	 * 
 	 * @param quantity the quantity of the pantry item
 	 * 
 	 * @return the quantity set by the int passed in
 	 */
-	public int setQuantity(int quantity) {
+	public int setQuantity(int quantity) throws IllegalArgumentException {
 		if (quantity < 0) {
 			throw new IllegalArgumentException("Quantity cannot be less than zero.");
 		}
@@ -107,12 +110,13 @@ public class PantryItem {
 	/**
 	 * Takes quantity and subtracts one from the value
 	 * 
-	 * @precondition none
+	 * @precondition quantity != 0
 	 * @postcondition none
+	 * @throws IllegalArgumentException violates precondition
 	 * 
 	 * @return the quantity one lower than it was previously
 	 */
-	public int decrementQuantity() {
+	public int decrementQuantity() throws IllegalArgumentException {
 		if (this.quantity == 0) {
 			throw new IllegalArgumentException("Quantity is already 0 and cannot go below 0.");
 		}
