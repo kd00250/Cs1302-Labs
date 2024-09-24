@@ -1,3 +1,13 @@
+commit a9aece06767609015a0e3d2272e767ad8e3356df
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Sep 24 19:28:55 2024 -0400
+
+    Completed Project 1
+    
+    1)Added git repos url text file
+    2)Added log.txt file with commit history
+    3)Cleared up checkstyle errors
+
 commit 26d67294d6590d6acafe40e5bb086730f96fcafd
 Author: kd00250 <dearmank412@gmail.com>
 Date:   Fri Sep 20 14:57:20 2024 -0400

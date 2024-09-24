@@ -1,0 +1,226 @@
+commit a9aece06767609015a0e3d2272e767ad8e3356df
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Sep 24 19:28:55 2024 -0400
+
+    Completed Project 1
+    
+    1)Added git repos url text file
+    2)Added log.txt file with commit history
+    3)Cleared up checkstyle errors
+
+commit 26d67294d6590d6acafe40e5bb086730f96fcafd
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Fri Sep 20 14:57:20 2024 -0400
+
+    Connected Logic to CountTotalItems method
+    
+    1)Added a IllegalArgumentException to the getTotalQuantity method to catch when the list is empty
+    2)Added if/catch blocks to countTotalItems to catch IllegalArgumentException thrown by the static method
+    3)Added a test to test the static method to correctly through the exception
+
+commit 7edc9a77300a79f2f869f08eb3f9a1b72d9c703b
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Fri Sep 20 14:14:46 2024 -0400
+
+    Static Functionality to Count Quantity
+    
+    1)Add Utility class to model package to store getTotalQuantityOfItems and getTotalQuantity
+    2)Added getTotalQuantityOfItems as a static method that calls the getTotalQuantity method to do calculations
+    3)Added getTotalQuantity method to get the sum of all items in the pantry
+    4)Added tests to test for correct functionality
+
+commit a4ee5d3f0a118b236f4788adc8fefd4c7072c3df
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Sep 19 11:52:35 2024 -0400
+
+    Implemented UI for Counting Pantry
+    
+    1)Added count items button that will call the countTotalItems method
+    2)Added countTotalItems method header to the codebehind class
+    3)Rearranged the gui layout to be cleaner
+
+commit a19c249ca4a1ac6a7b2535178f3a7c77e87bae04
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Sep 19 11:26:26 2024 -0400
+
+    Implemented Logic to Remove Food
+    
+    1)Added functionality to the removeSelectedFood method to remove selected food from the list view
+    2)Added functionality to removeSelectedFood method to catch the error if button is selected when no food is in the list view
+
+commit c5d6dfa8488ba3016793327fd07494dc628249bc
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Sep 19 10:49:18 2024 -0400
+
+    Updated UI for removing food
+    
+    1)Added the remove food button in scenebuilder
+    2)Added the remove selected food header to the codebehind class
+
+commit 6f5a5b4c7e80c941ad4f701e79f3c47ed0270873
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 18 23:53:24 2024 -0400
+
+    Found one more exception
+    
+    1)Added catch block to catch the illegal argument that occurs when setting quantity to a negative number
+
+commit 314c7b22c29c042b194d6055dbccde19e0c22ab9
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 18 23:38:41 2024 -0400
+
+    Connected quantity logic to UI
+    
+    1)Added the decrementQuantity method that connects the logic to decrement to the button action
+    2)Added the incrementQuantity method that connects the logic to increment to the button action
+    3)Added the setQuantity method that connects the logic to increment to the button action
+    4)Added try catch blocks to the previously stated methods to catch all exceptions
+
+commit e406f1d8d7d45ab4503bd6e3ccac6fe4cedb3f26
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 18 20:57:52 2024 -0400
+
+    Added logic for updating quantity
+    
+    1)Added set, increment, and decrement quantity methods to the pantry item class
+    2)Added Test for the constructor of the pantry item class
+    3)Added Tests for set, increment, and decrement quantity methods to ensure correct functionality
+
+commit 85775c80edcfcc2a1b4f27328b8aa4fa1e5008c7
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 18 19:01:14 2024 -0400
+
+    Implemented UI
+    
+    1)Added label and textField for quantity of the users input
+    2)Added button that will set quantity of food item to users entered number
+    3)Added buttons to increase and decrease the quantity by one
+    4)Add buttons on action method headers to the codebehind class (without functionality
+
+commit 96198971ef21d4defe010087eb30dad2540359cd
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 18 18:00:33 2024 -0400
+
+    Connected UI to pantryItme logic
+    
+    1)Added logic for addFood method that adds the food input from the user
+    2)Added the types for food as an array of strings
+    3)Initialized the comboBox to contain the array of strings
+
+commit 8acc7395159077acadbacc891069102ed9373601
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 18 16:31:17 2024 -0400
+
+    Added Logic for storing food
+    
+    1)Added food item class where it stores a food item from a given name and type setting its quantity to default 0
+    2)Added Getters for quantity, type, and name
+    3)Added toString that return name - quantity
+    4)Deleted unused functionality brought over from first project
+
+commit 1c0a5185bb7fd31e348c81ffdba86c224c15786f
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 18 15:33:01 2024 -0400
+
+    Created Gui
+    
+    1)Added button on gui
+    2)Added label for name and type on gui
+    3)Added listview to hold the food added
+    4)Added textfield for food name
+    5)Added code from my first regular java project
+
+commit 18c6b389b614a00a0857922065728f30209f197d
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 18 14:07:06 2024 -0400
+
+    Created project
+    
+    1)Had to restart because I started with a java project instead of javafx project
+
+commit 50e2212d04d6927ee7d4501b1e04918150029173
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Mon Sep 16 20:37:43 2024 -0400
+
+    Created Project 1
+    
+    1)Created project one and set up repo
+
+commit 7f66093f884c0312ebea283e79cfb26f91e79a39
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sat Sep 14 21:09:58 2024 -0400
+
+    Completed Lab 4
+    
+    1)Changed bill referenced methods to BillCalculator method references
+    2)Added github repo link
+
+commit e439490b897d57db23a4ec5d2ad1163f3719b5a1
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sat Sep 14 20:52:23 2024 -0400
+
+    Added Static Functionality to BillCalculator class
+    
+    1)added getSubTotal that calculates the subtotal of the bill
+    2)added getTax that calculates the tax of the items
+    3)added getTip that calculates the tip of the bill
+    4)added getTotal that calculates the total by adding the tax, tip, and subtotal together
+    4)add constants tax percent and tip percent to get rid of magic numbers
+    5)removed dupicate fuctionality previously found in the Bill class
+
+commit b6f9b906dc1524631db3996c31b24e9df16b89c8
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Sep 12 15:49:28 2024 -0400
+
+    Added final keyword to fields
+    
+    1)Added final to name so that it cannot be changed
+    2)Added final to amount so that it cannot be changed
+
+commit c9beb28b756d835af606e40e05b1f176b8c481d0
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Sep 12 15:46:07 2024 -0400
+
+    Added bill file to repo.
+
+commit 9014669e7e7ffaff5bdab9208ca7c2d396773df2
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Mon Sep 9 17:07:40 2024 -0400
+
+    Added github repo url
+
+commit 0eab3b99ef50967e7c6df4f7e82a4ff96b616a7d
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Mon Sep 9 16:56:36 2024 -0400
+
+    Completed Issue averge Grades
+    
+    1)Added calculate button in scene builder
+    2)Added average label in scene builder
+    3)Added average textField in scene builder
+    4)Added calculateAverageGrade method
+    4)Added error popup message when viewList is empty and calculate button is clicked
+
+commit 8a936c6d5e24facf2c50169d3fe9f8112a4c2a43
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sun Sep 8 19:50:46 2024 -0400
+
+    Completed Displaying Grades issue
+    
+    1)Added removeStudent and addStudent
+    2)Added grade textField to display entered grade
+    3)Added displayStudent to display the grade and student name when student is selected in the listView
+
+commit 04c099f79adcf146831f0e3328407e34564d4639
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sun Sep 8 12:58:57 2024 -0400
+
+    Kenneth Dearman
+    
+    Set up project config
+
+commit 00e265e5790e4ee61236fa130be6474a14839d59
+Author: kd00250 <164975838+kd00250@users.noreply.github.com>
+Date:   Thu Sep 5 15:44:02 2024 -0400
+
+    Initial commit
