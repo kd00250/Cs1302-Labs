@@ -1,4 +1,4 @@
-package edu.westga.cs1302.project1.tests.model.pantryItem;
+package edu.westga.cs1302.project1.tests.model.utility;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
