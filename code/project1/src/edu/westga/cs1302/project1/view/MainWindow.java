@@ -59,6 +59,7 @@ public class MainWindow {
 		PantryItem selectedFood = this.food.getSelectionModel().getSelectedItem();
 		try {
 			selectedFood.decrementQuantity();
+			this.food.refresh();
 		} catch (IllegalArgumentException errorObject) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
 			errorPopup.setContentText("Unable to subtract 1 from selected item quantity. " + errorObject.getMessage()
@@ -77,6 +78,7 @@ public class MainWindow {
 		PantryItem selectedFood = this.food.getSelectionModel().getSelectedItem();
 		try {
 			selectedFood.incrementQuantity();
+			this.food.refresh();
 		} catch (NullPointerException errorObject) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
 			errorPopup
@@ -92,6 +94,7 @@ public class MainWindow {
 		try {
 			int newQuantity = Integer.parseInt(this.quantity.getText());
 			selectedFood.setQuantity(newQuantity);
+			this.food.refresh();
 		} catch (NumberFormatException errorNum) {
 			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
 			errorPopup.setContentText("Cannot set quantity. Enter a quantity value and try again.");
