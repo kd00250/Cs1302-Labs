@@ -1,3 +1,28 @@
+commit 4ae73970b8536ab227b42ec6df7d8947537583d5
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 25 16:21:56 2024 -0400
+
+    Applied Separation of Concerns
+    
+    1)Added new tests utility package where it tests getTotalQuantity
+    before, it was in the tests pantryItem package
+
+commit 1046fcb193e70d46d4536c32d9034761f870b145
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 25 16:10:08 2024 -0400
+
+    Added ListView refresh
+    
+    1)Will now refresh list view after manipulating quantity
+
+commit 5260a7f7fa1bcc25e0ebba8be36010c75a441a01
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Sep 24 19:34:54 2024 -0400
+
+    Updated log.txt in project explorer
+    
+    1)Copied and pasted the log.txt file created into project explorer for some reason it git log > log.txt did not take commit history into text file and created a new one in my repo
+
 commit a9aece06767609015a0e3d2272e767ad8e3356df
 Author: kd00250 <dearmank412@gmail.com>
 Date:   Tue Sep 24 19:28:55 2024 -0400
