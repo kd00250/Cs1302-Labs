@@ -1,7 +1,10 @@
 package edu.westga.cs1302.bill.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * Supports saving and loading bill data,
@@ -22,7 +25,8 @@ public class BillPersistenceManager {
 	 * @postcondition none
 	 * 
 	 * @throws IllegalArgumentException when precondition is violated
-	 * @throws IOException when the file writer can not write to the file
+	 * @throws IOException              invalid or missing name/amount found when
+	 *                                  trying to write to a file
 	 * @param bill the bill to save
 	 */
 	public static void saveBillData(Bill bill) throws IllegalArgumentException, IOException {
@@ -45,9 +49,35 @@ public class BillPersistenceManager {
 	 * @postcondition none
 	 * 
 	 * @return the bill loaded
+	 * @throws IOException           File is invalid or missing name/amount
+	 *                               when trying to create a new billItem
+	 * @throws FileNotFoundException file at the DATA_FILE does not exist
 	 */
-	public static Bill loadBillData() {
-		return null;
+	public static Bill loadBillData() throws IOException, FileNotFoundException {
+		File inputFile = new File(DATA_FILE);
+		Bill bill = new Bill();
+		try (Scanner reader = new Scanner(inputFile)) {
+			for (int lineNumber = 1; reader.hasNextLine(); lineNumber++) {
+				String baseLine = reader.nextLine();
+				String strippedLine = baseLine.strip();
+				String[] parts = strippedLine.split(",");
+				try {
+					String name = parts[0];
+					double amount = Double.parseDouble(parts[1]);
+					BillItem nextItem = new BillItem(name, amount);
+					bill.addItem(nextItem);
+				} catch (NumberFormatException numError) {
+					throw new IOException(
+							"Cannot read amount (was not a valid double) on line " + lineNumber + " : " + strippedLine);
+				} catch (IllegalArgumentException argError) {
+					throw new IOException(
+							"Cannont create bill item (name is invalid) on line " + lineNumber + " : " + strippedLine);
+				} catch (IndexOutOfBoundsException indexError) {
+					throw new IOException("Missing either name or amount on line " + lineNumber + " : " + strippedLine);
+				}
+			}
+		}
+		return bill;
 	}
 
 }

@@ -1,5 +1,6 @@
 package edu.westga.cs1302.bill.view;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import edu.westga.cs1302.bill.model.Bill;
@@ -89,5 +90,24 @@ public class MainWindow {
 		this.serverName.getItems().add("Trudy");
 		this.bill = new Bill();
 		this.updateReceipt();
+
+		try {
+			Bill loadBill = BillPersistenceManager.loadBillData();
+			BillItem[] list = new BillItem[loadBill.getItems().length];
+			list = loadBill.getItems();
+			for (BillItem currentItem : list) {
+				this.bill.addItem(currentItem);
+			}
+			this.updateReceipt();
+		} catch (FileNotFoundException fileError) {
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setContentText("No save data file found, loading with no Bill data.");
+			alert.showAndWait();
+		} catch (IOException parseError) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setHeaderText("File not in valid format.");
+			alert.setContentText(parseError.getMessage());
+			alert.showAndWait();
+		}
 	}
 }
