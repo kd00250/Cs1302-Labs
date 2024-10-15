@@ -1,7 +1,6 @@
 package edu.westga.cs1302.bill.model;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -30,7 +29,7 @@ public class CSVBillPersistenceManager extends BillPersistenceManager {
 	}
 
 	@Override
-	public Bill loadBillData() throws FileNotFoundException, IOException {
+	public Bill loadBillData() throws IOException {
 		Bill bill = new Bill();
 		File inputFile = new File(DATA_FILE);
 		try (Scanner reader = new Scanner(inputFile)) {

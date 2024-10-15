@@ -40,5 +40,5 @@ public abstract class BillPersistenceManager {
 	 * @thows IOException File is invalid or missing name/amount when trying to
 	 *        create a new billItem
 	 */
-	public abstract Bill loadBillData() throws FileNotFoundException, IOException;
+	public abstract Bill loadBillData() throws IOException;
 }

@@ -1,7 +1,9 @@
 package edu.westga.cs1302.bill.view;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 import edu.westga.cs1302.bill.model.Bill;
 import edu.westga.cs1302.bill.model.BillItem;
@@ -95,9 +97,15 @@ public class MainWindow {
 
 		this.format.getItems().add(new CSVBillPersistenceManager());
 		this.format.getItems().add(new TSVBillPersistenceManager());
-		this.format.setValue(this.format.getItems().get(0));
-
-		try {
+		File inputFile = new File(CSVBillPersistenceManager.DATA_FILE);
+		try (Scanner reader = new Scanner(inputFile)) {
+			while (reader.hasNextLine()) {
+				if (reader.nextLine().contains(",")) {
+					this.format.setValue(this.format.getItems().get(0));
+				} else {
+					this.format.setValue(this.format.getItems().get(1));
+				}
+			}
 			Bill loadBill = this.format.getValue().loadBillData();
 			this.bill.setServerName(loadBill.getServerName());
 			BillItem[] list = new BillItem[loadBill.getItems().length];
@@ -106,14 +114,9 @@ public class MainWindow {
 				this.bill.addItem(currentItem);
 			}
 		} catch (FileNotFoundException fileError) {
-			Alert alert = new Alert(Alert.AlertType.INFORMATION);
-			alert.setContentText("No save data file found, loading with no Bill data.");
-			alert.showAndWait();
+			this.displayErrorPopup("No save data file found, loading with no Bill data.");
 		} catch (IOException parseError) {
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setHeaderText("File not in valid format.");
-			alert.setContentText(parseError.getMessage());
-			alert.showAndWait();
+			this.displayErrorPopup("File not in valid format.");
 		}
 		this.updateReceipt();
 	}
