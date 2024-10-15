@@ -76,11 +76,7 @@ public class MainWindow {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setContentText("Could not write to file.");
 			alert.showAndWait();
-		} catch (IllegalArgumentException argError) {
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setContentText("Cannot write to file. " + argError.getMessage());
-			alert.showAndWait();
-		}
+		} 
 	}
 
 	@FXML
