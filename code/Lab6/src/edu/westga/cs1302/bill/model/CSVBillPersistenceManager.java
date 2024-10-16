@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @version Fall 2024
  */
 public class CSVBillPersistenceManager extends BillPersistenceManager {
-	
+
 	public static final String DATA_FILE = "data.txt";
 
 	@Override
@@ -43,7 +43,7 @@ public class CSVBillPersistenceManager extends BillPersistenceManager {
 		}
 		return bill;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "CSV";

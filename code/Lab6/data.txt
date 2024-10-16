@@ -1,2 +1,4 @@
-Bob
-aaa	12.5
+Trudy
+bbb	12.5
+aaa	11.5
+ccc	10.0

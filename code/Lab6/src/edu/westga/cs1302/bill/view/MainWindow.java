@@ -3,9 +3,14 @@ package edu.westga.cs1302.bill.view;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 import edu.westga.cs1302.bill.model.Bill;
+import edu.westga.cs1302.bill.model.BillAscendingCostComparator;
+import edu.westga.cs1302.bill.model.BillDescendingCostComparator;
 import edu.westga.cs1302.bill.model.BillItem;
 import edu.westga.cs1302.bill.model.BillPersistenceManager;
 import edu.westga.cs1302.bill.model.CSVBillPersistenceManager;
@@ -36,6 +41,8 @@ public class MainWindow {
 	private ComboBox<BillPersistenceManager> format;
 	@FXML
 	private ComboBox<String> serverName;
+	@FXML
+	private ComboBox<Comparator<BillItem>> order;
 
 	@FXML
 	void addItem(ActionEvent event) {
@@ -69,7 +76,6 @@ public class MainWindow {
 	void saveBillData(ActionEvent event) {
 		try {
 			this.format.getValue().saveBillData(this.bill);
-			// BillPersistenceManager.saveBillData(this.bill);
 		} catch (IOException writeError) {
 			this.displayErrorPopup("Unable to save data to file!");
 		} catch (IllegalArgumentException argError) {
@@ -89,6 +95,19 @@ public class MainWindow {
 	}
 
 	@FXML
+	void changeOrder(ActionEvent event) {
+		List<BillItem> bill = Arrays.asList(this.bill.getItems());
+		bill.sort(this.order.getValue());
+		bill.toArray();
+		this.bill = new Bill();
+		for (BillItem currentItem : bill) {
+			this.bill.addItem(currentItem);
+		}
+		this.updateReceipt();
+
+	}
+
+	@FXML
 	void initialize() {
 		this.serverName.getItems().add("Bob");
 		this.serverName.getItems().add("Alice");
@@ -97,6 +116,10 @@ public class MainWindow {
 
 		this.format.getItems().add(new CSVBillPersistenceManager());
 		this.format.getItems().add(new TSVBillPersistenceManager());
+
+		this.order.getItems().add(new BillAscendingCostComparator());
+		this.order.getItems().add(new BillDescendingCostComparator());
+		this.order.setValue(this.order.getItems().get(0));
 		File inputFile = new File(CSVBillPersistenceManager.DATA_FILE);
 		try (Scanner reader = new Scanner(inputFile)) {
 			while (reader.hasNextLine()) {

@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @version Fall 2024
  */
 public class TSVBillPersistenceManager extends BillPersistenceManager {
-	
+
 	public static final String DATA_FILE = "data.txt";
 
 	@Override
@@ -26,7 +26,7 @@ public class TSVBillPersistenceManager extends BillPersistenceManager {
 				writer.write(item.getName() + "\t" + item.getAmount() + System.lineSeparator());
 			}
 		}
-		
+
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class TSVBillPersistenceManager extends BillPersistenceManager {
 		}
 		return bill;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "TSV";
