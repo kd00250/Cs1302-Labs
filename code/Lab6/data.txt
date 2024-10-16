@@ -1,4 +1,4 @@
 Trudy
-bbb	12.5
-aaa	11.5
+bbb	9.5
 ccc	10.0
+aaa	11.5

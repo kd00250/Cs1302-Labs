@@ -3,9 +3,7 @@ package edu.westga.cs1302.bill.view;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Scanner;
 
 import edu.westga.cs1302.bill.model.Bill;
@@ -51,6 +49,7 @@ public class MainWindow {
 			this.bill.addItem(item);
 			this.name.clear();
 			this.amount.clear();
+			this.changeOrder(event);
 			this.updateReceipt();
 		} catch (NumberFormatException numError) {
 			this.displayErrorPopup("Invalid amount provided, please correct and try again.");
@@ -96,15 +95,8 @@ public class MainWindow {
 
 	@FXML
 	void changeOrder(ActionEvent event) {
-		List<BillItem> bill = Arrays.asList(this.bill.getItems());
-		bill.sort(this.order.getValue());
-		bill.toArray();
-		this.bill = new Bill();
-		for (BillItem currentItem : bill) {
-			this.bill.addItem(currentItem);
-		}
+		this.bill.sort(this.order.getValue());
 		this.updateReceipt();
-
 	}
 
 	@FXML
