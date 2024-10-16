@@ -1,3 +1,88 @@
+commit a10b6332a3b598d0e449f4796713f6c225606068
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Oct 16 12:13:37 2024 -0400
+
+    Fixed Sorting For Adding Items
+    
+    1)Fixed the sorting changeFormat method to access the arrayList of billItems
+    2)Added to the addItem method so that the item added will be sorted into the list of billItems
+
+commit e21f1d838569de30786fc559a9f431e23c171e19
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Oct 15 23:17:46 2024 -0400
+
+    Implemented Sorting Items by Cost
+    
+    1)Added the billAscendingCostComparator to implement the compare method to allow for sorting in ascending order
+    2)Added the billDescendingCostComparator to implement the compare method to allow for sorting in ascending order
+    3)Added functionality in the main window to connect the ascending and descending comparators to the change order combo box
+
+commit ba978ce55c76a2975277027b15c98f83307b40b0
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Oct 15 17:49:49 2024 -0400
+
+    Removed Copy code
+    
+    1)Removed the copy of the bill persistence manager
+
+commit c57cdbd8f342d1aa12fb11c3de1929cfbd782db4
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Oct 15 17:47:51 2024 -0400
+
+    Fixed Format Issue
+    
+    1)Fixed code in mainWindow to be able to decide what format to read the text file from and catch appropriate errors
+
+commit 300d235f8010a54f86e92f15be6eb769da0dff34
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Oct 15 12:14:56 2024 -0400
+
+    Added Save and Load file in CSV or TSV
+    
+    1) Added the billpersistence manager abstract class to describe the functionality of load and save bill methods to be used by other classes
+    2) Added the CVS and TSV bill persistence manager classes that implement the load and save bill methods from the abstract class to fit their format of either CSV or TSV
+    3) Added throws filenotfoundexception and ioexception to load method
+    4) Connected appropriate methods to the mainwindow and caught the thrown excpetions
+
+commit 5f5b3f664925452af11bcb8f5afc10dc81f77471
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Oct 10 15:29:50 2024 -0400
+
+    Added lab 6 to repo
+
+commit f12db1dfb5217c7353727fd3b823ae0fa3774ffb
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sun Oct 6 12:12:42 2024 -0400
+
+    Completed Lab5
+    
+    1)Added functionality to load from file method
+    2)Added tests to test for correct functionality for the load from file method
+    3)Added functionality in the main window to ensure the load from file method works with the gui
+    4)Added git hub repo url
+
+commit 6776b9e16112c5c936b10ec255a1c1a4a77589ba
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sat Oct 5 13:13:10 2024 -0400
+
+    Added Save to File Functionality
+    
+    1)Added functionality to saveBillData method to write to a text file the contents of bill
+    2)Added tests to test the functionality of saveBillData to ensure correct fuctions
+    3)Added functionality to mainWindow saveBillDataMethod to connect the button displayed on the gui with the method functionality
+
+commit e7f9fd4bdb70c690dec4d8161f5b16e14b3ece80
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Fri Oct 4 12:24:23 2024 -0400
+
+    Added Project to Repo
+
+commit 7d6e508ade650740a8b23ce509e0c97f31552d62
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Sep 25 16:28:41 2024 -0400
+
+    Updated log.txt Final Submission
+
 commit 4ae73970b8536ab227b42ec6df7d8947537583d5
 Author: kd00250 <dearmank412@gmail.com>
 Date:   Wed Sep 25 16:21:56 2024 -0400
