@@ -18,6 +18,7 @@ public class MainWindow {
 	@FXML private ComboBox<String> ingredientType;
 	@FXML private ListView<Ingredient> ingredientsList;
 	@FXML private TextField ingredientName;
+	@FXML private ComboBox<Ingredient> sortList;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
@@ -40,6 +41,11 @@ public class MainWindow {
 			this.ingredientsList.getItems().remove(selectedIngredient);
 		}
 	}
+	
+	@FXML
+    void sortBy(ActionEvent event) {
+
+    }
 
 	@FXML
 	void initialize() {
