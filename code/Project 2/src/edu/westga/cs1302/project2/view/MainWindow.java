@@ -23,6 +23,8 @@ public class MainWindow {
 	@FXML private ListView<Ingredient> ingredientsList;
 	@FXML private TextField ingredientName;
 	@FXML private ComboBox<Comparator<Ingredient>> sortList;
+	@FXML private ListView<?> recipeList;
+	@FXML private TextField recipeName;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
@@ -59,6 +61,16 @@ public class MainWindow {
 	private void updateIngredientList() {
 		this.ingredientsList.refresh();
 	}
+	
+	@FXML
+    void addRecipeToBook(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addToRecipe(ActionEvent event) {
+
+    }
 
 	@FXML
 	void initialize() {
