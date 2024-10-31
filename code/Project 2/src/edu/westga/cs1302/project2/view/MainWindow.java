@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 /**
@@ -22,17 +23,26 @@ import javafx.scene.control.TextField;
  * @version Fall 2024
  */
 public class MainWindow {
-	@FXML private ComboBox<String> ingredientType;
-	@FXML private ListView<Ingredient> ingredientsList;
-	@FXML private TextField ingredientName;
-	@FXML private ComboBox<Comparator<Ingredient>> sortList;
-	@FXML private ListView<Ingredient> recipeList;
-	@FXML private TextField recipeName;
+	@FXML
+	private ComboBox<String> ingredientType;
+	@FXML
+	private ListView<Ingredient> ingredientsList;
+	@FXML
+	private TextField ingredientName;
+	@FXML
+	private ComboBox<Comparator<Ingredient>> sortList;
+	@FXML
+	private ListView<Ingredient> recipeList;
+	@FXML
+	private TextField recipeName;
+	@FXML
+	private TextArea recipeDisplay;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
 		try {
-			this.ingredientsList.getItems().add(new Ingredient(this.ingredientName.getText(), this.ingredientType.getValue()));
+			this.ingredientsList.getItems()
+					.add(new Ingredient(this.ingredientName.getText(), this.ingredientType.getValue()));
 			this.ingredientName.clear();
 			this.ingredientType.getSelectionModel().clearSelection();
 		} catch (IllegalArgumentException error) {
@@ -54,29 +64,29 @@ public class MainWindow {
 		this.sortBy(event);
 		this.updateIngredientList();
 	}
-	
+
 	@FXML
-    void sortBy(ActionEvent event) {
+	void sortBy(ActionEvent event) {
 		this.ingredientsList.getItems().sort(this.sortList.getValue());
 		this.updateIngredientList();
-    }
-	
+	}
+
 	private void updateIngredientList() {
 		this.ingredientsList.refresh();
 	}
-	
+
 	private void updateRecipeList() {
 		this.recipeList.refresh();
 	}
-	
+
 	private void displayErrorPopup(String message) {
 		Alert alert = new Alert(Alert.AlertType.ERROR);
 		alert.setContentText(message);
 		alert.showAndWait();
 	}
-	
+
 	@FXML
-    void addRecipeToBook(ActionEvent event) {
+	void addRecipeToBook(ActionEvent event) {
 		try {
 			Recipe recipe = new Recipe(this.recipeName.getText());
 			for (Ingredient currentIngredient : this.recipeList.getItems()) {
@@ -92,15 +102,20 @@ public class MainWindow {
 		} catch (IllegalArgumentException argError) {
 			this.displayErrorPopup(argError.getMessage());
 		}
-    }
+	}
 
-    @FXML
-    void addToRecipe(ActionEvent event) {
-    	Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
-    	this.recipeList.getItems().add(selectedIngredient);
-    	this.updateIngredientList();
-    	
-    }
+	@FXML
+	void addToRecipe(ActionEvent event) {
+		Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
+		this.recipeList.getItems().add(selectedIngredient);
+		this.updateIngredientList();
+
+	}
+
+	@FXML
+	void displayRecipes(ActionEvent event) {
+
+	}
 
 	@FXML
 	void initialize() {
@@ -109,7 +124,7 @@ public class MainWindow {
 		this.ingredientType.getItems().add("Bread");
 		this.ingredientType.getItems().add("Fruit");
 		this.ingredientType.getItems().add("Spice");
-		
+
 		this.sortList.getItems().add(new NameComparator());
 		this.sortList.getItems().add(new TypeComparator());
 		this.sortList.setValue(this.sortList.getItems().get(0));
