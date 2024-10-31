@@ -1,9 +1,12 @@
 package edu.westga.cs1302.project2.view;
 
+import java.io.IOException;
 import java.util.Comparator;
 
 import edu.westga.cs1302.project2.model.Ingredient;
 import edu.westga.cs1302.project2.model.NameComparator;
+import edu.westga.cs1302.project2.model.Recipe;
+import edu.westga.cs1302.project2.model.RecipeWriteToFile;
 import edu.westga.cs1302.project2.model.TypeComparator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +26,7 @@ public class MainWindow {
 	@FXML private ListView<Ingredient> ingredientsList;
 	@FXML private TextField ingredientName;
 	@FXML private ComboBox<Comparator<Ingredient>> sortList;
-	@FXML private ListView<?> recipeList;
+	@FXML private ListView<Ingredient> recipeList;
 	@FXML private TextField recipeName;
 
 	@FXML
@@ -62,14 +65,41 @@ public class MainWindow {
 		this.ingredientsList.refresh();
 	}
 	
+	private void updateRecipeList() {
+		this.recipeList.refresh();
+	}
+	
+	private void displayErrorPopup(String message) {
+		Alert alert = new Alert(Alert.AlertType.ERROR);
+		alert.setContentText(message);
+		alert.showAndWait();
+	}
+	
 	@FXML
     void addRecipeToBook(ActionEvent event) {
-
+		try {
+			Recipe recipe = new Recipe(this.recipeName.getText());
+			for (Ingredient currentIngredient : this.recipeList.getItems()) {
+				recipe.addIngredient(currentIngredient);
+			}
+			RecipeWriteToFile file = new RecipeWriteToFile();
+			file.appendFile(recipe);
+			this.recipeList.getItems().clear();
+			this.recipeName.setText("");
+			this.updateRecipeList();
+		} catch (IOException ioError) {
+			this.displayErrorPopup(ioError.getMessage());
+		} catch (IllegalArgumentException argError) {
+			this.displayErrorPopup(argError.getMessage());
+		}
     }
 
     @FXML
     void addToRecipe(ActionEvent event) {
-
+    	Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
+    	this.recipeList.getItems().add(selectedIngredient);
+    	this.updateIngredientList();
+    	
     }
 
 	@FXML

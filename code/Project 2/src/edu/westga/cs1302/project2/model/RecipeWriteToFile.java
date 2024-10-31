@@ -83,7 +83,9 @@ public class RecipeWriteToFile {
 			}
 		} catch (IllegalStateException stateError) {
 			throw new IOException(stateError.getMessage());
-		} 
+		} catch (FileNotFoundException fileError) {
+			throw new IOException("No File Found, please try again.");
+		}
 		recipes.add(recipe);
 		try (FileWriter writer = new FileWriter(DATA_FILE)) {
 			for (Recipe currentRecipe : recipes) {
