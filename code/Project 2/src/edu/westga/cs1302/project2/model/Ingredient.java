@@ -32,6 +32,9 @@ public class Ingredient {
 	
 	/** Return the name of the ingredient
 	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
 	 * @return the name of the ingredient
 	 */
 	public String getName() {
@@ -39,6 +42,9 @@ public class Ingredient {
 	}
 	
 	/** Return the type of the ingredient
+	 * 
+	 * @precondition none
+	 * @postcondition none
 	 * 
 	 * @return the type of the ingredient
 	 */
