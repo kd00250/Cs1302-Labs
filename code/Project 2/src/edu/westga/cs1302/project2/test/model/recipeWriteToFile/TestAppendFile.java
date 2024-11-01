@@ -13,7 +13,7 @@ import edu.westga.cs1302.project2.model.Ingredient;
 import edu.westga.cs1302.project2.model.Recipe;
 import edu.westga.cs1302.project2.model.RecipeWriteToFile;
 
-class TestSaveRecipeData {
+class TestAppendFile {
 
 	@Test
 	void testSaveNullRecipe() {
@@ -33,17 +33,17 @@ class TestSaveRecipeData {
 		file.appendFile(recipe1);
 		Recipe recipe2 = new Recipe("Steak");
 		recipe2.addIngredient(item);
-		
+
 		assertThrows(IOException.class, () -> {
 			file.appendFile(recipe2);
 		});
 	}
-	
+
 	@Test
 	void testNoItems() throws IOException {
 		RecipeWriteToFile file = new RecipeWriteToFile();
 		file.wipeFile();
-		
+
 		assertThrows(IllegalArgumentException.class, () -> {
 			file.appendFile(new Recipe("Steak"));
 		});

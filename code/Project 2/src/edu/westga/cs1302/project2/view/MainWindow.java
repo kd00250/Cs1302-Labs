@@ -107,8 +107,12 @@ public class MainWindow {
 	@FXML
 	void addToRecipe(ActionEvent event) {
 		Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
-		this.recipeList.getItems().add(selectedIngredient);
-		this.updateIngredientList();
+		if (selectedIngredient != null) {
+			this.recipeList.getItems().add(selectedIngredient);
+			this.updateIngredientList();
+		} else {
+			this.displayErrorPopup("No Ingredients selected. Please selecte an Ingredient and try again.");
+		}
 
 	}
 

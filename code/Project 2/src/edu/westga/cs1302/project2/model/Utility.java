@@ -1,5 +1,7 @@
 package edu.westga.cs1302.project2.model;
 
+import java.util.ArrayList;
+
 /**
  * The Utility class
  * 
@@ -26,5 +28,26 @@ public class Utility {
 			recipeString += currentItem.getName() + "," + currentItem.getType() + ",";
 		}
 		return recipeString.substring(0, recipeString.length() - 1);
+	}
+
+	/**
+	 * Takes a list and turns it into string format
+	 * 
+	 * @precondition recipes != null
+	 * @postcondition none
+	 * 
+	 * @param recipes the list of recipes
+	 * @return the list of recipes in string format
+	 */
+	public static String recipeListToString(ArrayList<Recipe> recipes) {
+		if (recipes == null) {
+			throw new IllegalArgumentException("Recipes cannot be null");
+		}
+
+		String recipeList = "";
+		for (Recipe currentRecipe : recipes) {
+			recipeList += recipeStringFormat(currentRecipe) + System.lineSeparator() + System.lineSeparator();
+		}
+		return recipeList;
 	}
 }
