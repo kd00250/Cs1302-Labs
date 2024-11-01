@@ -15,27 +15,27 @@ class TestGetItems {
 
 		assertEquals(0, recipe.getItems().length);
 	}
-	
+
 	@Test
 	void testOneItem() {
 		Recipe recipe = new Recipe("Steak");
-		Ingredient item1 = new Ingredient("Apple","Fruit");
+		Ingredient item1 = new Ingredient("Apple", "Fruit");
 		recipe.addIngredient(item1);
-		
+
 		assertEquals(1, recipe.getItems().length);
 		assertEquals(item1, recipe.getItems()[0]);
 		assertEquals(item1.getName(), recipe.getItems()[0].getName());
 		assertEquals(item1.getType(), recipe.getItems()[0].getType());
 	}
-	
+
 	@Test
 	void testMultipleItems() {
 		Recipe recipe = new Recipe("Steak");
-		Ingredient item1 = new Ingredient("Apple","Fruit");
-		Ingredient item2 = new Ingredient("Cheese","Dairy");
+		Ingredient item1 = new Ingredient("Apple", "Fruit");
+		Ingredient item2 = new Ingredient("Cheese", "Dairy");
 		recipe.addIngredient(item1);
 		recipe.addIngredient(item2);
-		
+
 		assertEquals(2, recipe.getItems().length);
 		assertEquals(item1, recipe.getItems()[0]);
 		assertEquals(item1.getName(), recipe.getItems()[0].getName());

@@ -16,9 +16,8 @@ class TestCompare {
 		Ingredient ingredient1 = new Ingredient("Carrot", "Veggie");
 		Ingredient ingredient2 = new Ingredient("Flour", "Other");
 		Comparator<Ingredient> comparator = new NameComparator();
-		
-		
-		assertEquals(-3, comparator.compare(ingredient1, ingredient2) );
+
+		assertEquals(-3, comparator.compare(ingredient1, ingredient2));
 	}
 
 	@Test
@@ -26,18 +25,17 @@ class TestCompare {
 		Ingredient ingredient1 = new Ingredient("Flour", "Other");
 		Ingredient ingredient2 = new Ingredient("Carrot", "Veggie");
 		Comparator<Ingredient> comparator = new NameComparator();
-		
-		
-		assertEquals(3, comparator.compare(ingredient1, ingredient2) );
+
+		assertEquals(3, comparator.compare(ingredient1, ingredient2));
 	}
-	
+
 	@Test
 	void testCompareBothIngredientIsEqual() {
 		Ingredient ingredient1 = new Ingredient("Flour", "Other");
 		Ingredient ingredient2 = new Ingredient("Flour", "Other");
 		Comparator<Ingredient> comparator = new NameComparator();
-		
-		assertEquals(0, comparator.compare(ingredient1, ingredient2) );
+
+		assertEquals(0, comparator.compare(ingredient1, ingredient2));
 	}
-	
+
 }

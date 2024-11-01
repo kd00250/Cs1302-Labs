@@ -23,9 +23,9 @@ public class RecipeWriteToFile {
 	 * @postcondition none
 	 */
 	public RecipeWriteToFile() {
-		
+
 	}
-	
+
 	/**
 	 * Wipes the file for storing recipes
 	 * 
@@ -50,7 +50,8 @@ public class RecipeWriteToFile {
 	 * @precondition recipe != null, recipe.getItems().length != 0
 	 * @postcondition none
 	 * 
-	 * @throws IOExcepion when there is already a recipe with the same name
+	 * @throws IOExcepion            when there is already a recipe with the same
+	 *                               name
 	 * @throws FileNotFoundException when file does not exists
 	 * 
 	 * @param recipe the recipe to append

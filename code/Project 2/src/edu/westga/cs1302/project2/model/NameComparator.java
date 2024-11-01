@@ -8,7 +8,7 @@ import java.util.Comparator;
  * @author CS 1302
  * @version fall 2024
  */
-public class NameComparator implements Comparator<Ingredient>  {
+public class NameComparator implements Comparator<Ingredient> {
 
 	@Override
 	public int compare(Ingredient ingredient1, Ingredient ingredient2) {

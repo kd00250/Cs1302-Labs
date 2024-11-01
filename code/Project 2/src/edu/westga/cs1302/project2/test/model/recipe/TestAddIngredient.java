@@ -12,22 +12,32 @@ class TestAddIngredient {
 	@Test
 	void testAddNullIngredient() {
 		Recipe recipe = new Recipe("Cheese");
-		
+
 		assertThrows(IllegalArgumentException.class, () -> {
 			recipe.addIngredient(null);
 		});
 	}
-	
+
+	@Test
+	void testAddSameIngredientNameAsRecipe() {
+		Recipe recipe = new Recipe("Cheese");
+		Ingredient ingredient = new Ingredient("Cheese", "Dairy");
+
+		assertThrows(IllegalArgumentException.class, () -> {
+			recipe.addIngredient(ingredient);
+		});
+	}
+
 	@Test
 	void testAddOneIngredient() {
 		Recipe recipe = new Recipe("Steak");
 		Ingredient ingredient = new Ingredient("apple", "Fruit");
 		recipe.addIngredient(ingredient);
-		
+
 		assertEquals(1, recipe.getItems().length);
 		assertEquals(ingredient, recipe.getItems()[0]);
 	}
-	
+
 	@Test
 	void testAddTwoIngredient() {
 		Recipe recipe = new Recipe("Steak");
@@ -35,7 +45,7 @@ class TestAddIngredient {
 		Ingredient ingredient2 = new Ingredient("Carrot", "Vegetable");
 		recipe.addIngredient(ingredient1);
 		recipe.addIngredient(ingredient2);
-		
+
 		assertEquals(2, recipe.getItems().length);
 		assertEquals(ingredient1, recipe.getItems()[0]);
 		assertEquals("apple", recipe.getItems()[0].getName());

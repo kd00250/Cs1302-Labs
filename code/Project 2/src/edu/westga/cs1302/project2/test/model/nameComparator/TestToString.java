@@ -14,7 +14,7 @@ class TestToString {
 	@Test
 	void testToString() {
 		Comparator<Ingredient> comparator = new NameComparator();
-		
+
 		assertEquals("Name", comparator.toString());
 	}
 

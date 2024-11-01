@@ -59,6 +59,10 @@ public class Recipe {
 		if (ingredient == null) {
 			throw new IllegalArgumentException("ingredient cannot be null.");
 		}
+		if (this.name.equals(ingredient.getName())) {
+			throw new IllegalArgumentException("Ingredient name and recipe name cannot be the same");
+		}
+
 		this.ingredientList.add(ingredient);
 	}
 

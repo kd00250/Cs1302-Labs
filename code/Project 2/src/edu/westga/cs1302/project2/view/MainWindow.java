@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.Comparator;
 
 import edu.westga.cs1302.project2.model.Ingredient;
+import edu.westga.cs1302.project2.model.LoadRecipes;
 import edu.westga.cs1302.project2.model.NameComparator;
 import edu.westga.cs1302.project2.model.Recipe;
 import edu.westga.cs1302.project2.model.RecipeWriteToFile;
 import edu.westga.cs1302.project2.model.TypeComparator;
+import edu.westga.cs1302.project2.model.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -118,7 +120,14 @@ public class MainWindow {
 
 	@FXML
 	void displayRecipes(ActionEvent event) {
-
+		Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
+		LoadRecipes recipes = new LoadRecipes();
+		if (selectedIngredient != null) {
+			String output = Utility.recipeListToString(recipes.getRecipesWithSameIngredient(selectedIngredient));
+			this.recipeDisplay.setText(output);
+		} else {
+			this.displayErrorPopup("No Ingredients selected. Please selecte an Ingredient and try again.");
+		}
 	}
 
 	@FXML

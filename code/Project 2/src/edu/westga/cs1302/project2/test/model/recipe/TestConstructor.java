@@ -10,26 +10,30 @@ class TestConstructor {
 
 	@Test
 	void testNullName() {
-		assertThrows(IllegalArgumentException.class, ()->{new Recipe(null);});
+		assertThrows(IllegalArgumentException.class, () -> {
+			new Recipe(null);
+		});
 	}
 
 	@Test
 	void testEmptyName() {
-		assertThrows(IllegalArgumentException.class, ()->{new Recipe("");});
+		assertThrows(IllegalArgumentException.class, () -> {
+			new Recipe("");
+		});
 	}
-	
+
 	@Test
 	void testBlankName() {
-		assertThrows(IllegalArgumentException.class, ()->{new Recipe(" ");});
+		assertThrows(IllegalArgumentException.class, () -> {
+			new Recipe(" ");
+		});
 	}
-	
+
 	@Test
 	void testValidConstructor() {
 		Recipe recipe = new Recipe("Steak");
-		
+
 		assertEquals(0, recipe.getItems().length);
 	}
-	
-	
 
 }

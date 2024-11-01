@@ -21,7 +21,7 @@ class TestLoadFile {
 		recipes.loadFile();
 		assertTrue(recipes.loadFile().size() == 0);
 	}
-	
+
 	@Test
 	void testOneRecipeFile() throws IOException {
 		LoadRecipes recipes = new LoadRecipes();
@@ -31,14 +31,13 @@ class TestLoadFile {
 		Ingredient item = new Ingredient("Apple", "Fruit");
 		recipe1.addIngredient(item);
 		file.appendFile(recipe1);
-		
-		
+
 		assertEquals(1, recipes.loadFile().size());
 		assertEquals(recipe1.getRecipeName(), recipes.loadFile().get(0).getRecipeName());
 		assertEquals(recipe1.getItems()[0].getName(), recipes.loadFile().get(0).getItems()[0].getName());
 		assertEquals(recipe1.getItems()[0].getType(), recipes.loadFile().get(0).getItems()[0].getType());
 	}
-	
+
 	@Test
 	void testMultipleRecipeInFile() throws IOException {
 		LoadRecipes recipes = new LoadRecipes();
@@ -52,7 +51,7 @@ class TestLoadFile {
 		file.appendFile(recipe1);
 		file.appendFile(recipe2);
 		recipes.loadFile();
-		
+
 		assertEquals(2, recipes.loadFile().size());
 		assertEquals(recipe1.getRecipeName(), recipes.loadFile().get(0).getRecipeName());
 		assertEquals(recipe1.getItems()[0].getName(), recipes.loadFile().get(0).getItems()[0].getName());
@@ -60,7 +59,7 @@ class TestLoadFile {
 		assertEquals(recipe2.getRecipeName(), recipes.loadFile().get(1).getRecipeName());
 		assertEquals(recipe2.getItems()[0].getName(), recipes.loadFile().get(1).getItems()[0].getName());
 		assertEquals(recipe2.getItems()[0].getType(), recipes.loadFile().get(1).getItems()[0].getType());
-		
+
 	}
 
 }
