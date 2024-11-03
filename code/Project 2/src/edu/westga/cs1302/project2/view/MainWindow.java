@@ -126,7 +126,7 @@ public class MainWindow {
 			String output = Utility.recipeListToString(recipes.getRecipesWithSameIngredient(selectedIngredient));
 			this.recipeDisplay.setText(output);
 		} else {
-			this.displayErrorPopup("No Ingredients selected. Please selecte an Ingredient and try again.");
+			this.displayErrorPopup("No Ingredients selected. Please select an Ingredient and try again.");
 		}
 	}
 

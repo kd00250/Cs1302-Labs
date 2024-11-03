@@ -1,0 +1,106 @@
+commit 2fc317e13f017ef70589c89c69bb03dfbf795b34
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Fri Nov 1 19:48:37 2024 -0400
+
+    Connected logic to gui
+    
+    1)Added functionality to addToRecipe to add the selected ingredient to the recipeList view
+    2)Added functionality to add recipe to book method to read the file and add the new recipe to the file if it does not already exist with the same name
+    3)Added functionality to display recipes to display recipes with selected ingredient in the textArea in string form
+
+commit 1c1724da54dfbdc1a1fe3272b43fc3dfd55522c0
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Fri Nov 1 16:27:49 2024 -0400
+
+    Added functionality to load from file
+    
+    1)Added static method recipeListToString to convert a list of recipes to a string format
+    2)Added class load recipes to load recipes from file
+    3)Added load file method that return a list of recipes loaded from the file
+    4)Added get recipes with same ingredient method that returns a list of recipes that have a specified ingredient
+    5)Added tests for recipeListToString to test functionality
+    6)Added tests for load file method to test functionality
+    7)Added tests for get recipes with same ingredient to test functionality
+
+commit 2b6fe3534984ce677c904dbbb61cee6797f4a5da
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Oct 31 12:36:04 2024 -0400
+
+    Updated gui to display recipes
+    
+    1)Added a textArea called recipeDisplay to display the recipes
+    2)Added a displayRecipes method to display the recipes to the recipe display textArea
+
+commit 24a4f1b20d376a302a5e1af02e9f7e450fe10247
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Oct 31 11:39:30 2024 -0400
+
+    Connected gui to recipe logic
+    
+    1)Added functionality to add recipe to book that write the recipe to the file
+    2)Added updateRecipeList helper method to clear the recipe name text field and list view when a recipe is added to the file
+    3)Added display error popup helper method to display appropriate error message as a popup
+    4)Added add to recipe method to add the selected recipe from the ingredients list to the recipe list
+
+commit 3cd95d1f7952fc291a5a5eb296e71d2f0efd746c
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Oct 30 23:40:54 2024 -0400
+
+    Updated bussiness logic
+    
+    1)Added recipe class that stores a name and array list of ingredients and added getters for name and array list
+    2)Added utility class with the static method recipe string format that converts a recipe into string format
+    3)Added RecipeWriteToFile class and add the methods wipeFile (that reset the file to empty used for testing) and appendFile that takes the given recipe and adds it to the end of the file if the recipe does not already exist
+    4)Added tests for all methods necessary added with the new classes
+
+commit 55ce422bf091d2acdab293a8f111edc2c8e65c45
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Mon Oct 28 15:02:18 2024 -0400
+
+    Updateded Gui
+    
+    1)Added a listView to store ingredients for a recipe
+    2)Added a button to add selected ingredients to the recipe listView
+    3)A label recipe name and a recipe name text field for the user to name their recipe
+    4)Added a buttin add recipe to add the current recipe listView to a recipe book
+
+commit 847725f313bbe848614419df5ec970748e4cf640
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sun Oct 27 20:07:43 2024 -0400
+
+    Connect GUI to model logic
+    
+    1)Initialized the sortList to hold the name and type comparators starting with name
+    2)Made a updateIngredientList helper method to call when needing to update the list
+    3)Added the sortBy method to sort the ingredient list by the selected choice in the sortList combo box
+    4)Added toString methods to both name and type comparator classes
+    5)Called the updateIngredientList method to update the list when an item is added or subtracted
+
+commit a4c6ca2cf3c7c55b4d0ff8540fcde60bbf167dcb
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sun Oct 27 19:00:13 2024 -0400
+
+    Updated model and Added Comparators
+    
+    1)Added Type comparator to compare the type of two ingredients
+    1)Added tests for type comparator to check for correct functionality
+    2)Added Name comparator to compare the name of two ingredients
+    3)Added tests for name comparator to check for correct functionality
+
+commit b09d3131c9941740132138fa12fc7392e5b3fa93
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sun Oct 27 15:16:48 2024 -0400
+
+    Updated Gui
+    
+    1)Added label that reads Sort By
+    2)Added combo box that will contain the proper types to order ingredients (currently empty)
+
+commit 3b28fcc6598f93c32ff2d8e4a1b37a56630e4da6
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sat Oct 26 17:21:42 2024 -0400
+
+    Added Project to Repository
+    
+    1)Added Project to repo
+    2)Added run configurations to project
