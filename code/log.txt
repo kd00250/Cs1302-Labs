@@ -1,3 +1,11 @@
+commit c5f6e727c484a2895f8d5b83a0443de95de64b0c
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Nov 6 22:53:39 2024 -0500
+
+    Completed Lab 7
+    
+    1)Added the commit history in log.txt
+
 commit 61e8cc7afaae51e3d50957f12df0dc0cadfc8599
 Author: kd00250 <dearmank412@gmail.com>
 Date:   Wed Nov 6 22:49:06 2024 -0500
