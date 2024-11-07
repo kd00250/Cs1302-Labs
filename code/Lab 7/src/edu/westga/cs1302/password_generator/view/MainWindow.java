@@ -3,6 +3,7 @@ package edu.westga.cs1302.password_generator.view;
 import java.util.Random;
 
 import edu.westga.cs1302.password_generator.model.PasswordGenerator;
+import edu.westga.cs1302.password_generator.viewmodel.MainWindowViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -23,8 +24,19 @@ public class MainWindow {
     @FXML private CheckBox mustIncludeUpperCaseLetters;
     @FXML private TextField minimumLength;
     @FXML private TextArea output;
+    private MainWindowViewModel viewModel;
     
     private PasswordGenerator generator;
+    
+    /**
+	 * Instantiates a new main window view model code behind.
+	 * 
+	 * @precondition none
+	 * @precondition none
+	 */
+    public MainWindow() {
+    	this.viewModel = new MainWindowViewModel();
+    }
 
     @FXML
     void generatePassword(ActionEvent event) {
