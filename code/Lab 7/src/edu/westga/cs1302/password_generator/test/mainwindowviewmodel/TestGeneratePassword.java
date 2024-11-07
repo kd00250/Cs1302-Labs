@@ -158,7 +158,7 @@ class TestGeneratePassword {
 		
 		String errorMessage = main.errorLabelProperty().getValue();
 		
-		assertEquals(errorMessage, "Invalid Minimum Length: minimum length must be at least 1", "checking generated contents of error label");
+		assertEquals(errorMessage, "Minimum length must be at least 1", "checking generated contents of error label");
 	}
 	
 	@Test
@@ -173,7 +173,7 @@ class TestGeneratePassword {
 		
 		String errorMessage = main.errorLabelProperty().getValue();
 		
-		assertEquals(errorMessage, "Invalid Minimum Length: must be a positive integer, but was " + main.minLengthProperty().getValue(), "checking generated contents of error label");
+		assertEquals(errorMessage, "Length must be a positive integer", "checking generated contents of error label");
 	}
 
 }

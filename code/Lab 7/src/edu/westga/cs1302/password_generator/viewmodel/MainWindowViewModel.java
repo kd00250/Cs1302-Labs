@@ -106,13 +106,12 @@ public class MainWindowViewModel {
 			this.generator.setMustHaveAtLeastOneUpperCaseLetter(this.mustIncludeUpperCaseLettersProperty().get());
 
 			this.outputProperty().set(this.generator.generatePassword());
-			this.errorLabelProperty().setValue("");
+			this.errorLabelProperty().set("");
 		} catch (NumberFormatException numberError) {
-			this.errorLabelProperty().setValue("Invalid Minimum Length: must be a positive integer, but was "
-					+ this.minLengthProperty().getValue());
+			this.errorLabelProperty().set("Length must be a positive integer");
 			return;
 		} catch (IllegalArgumentException invalidLengthError) {
-			this.errorLabelProperty().setValue("Invalid Minimum Length: " + invalidLengthError.getMessage());
+			this.errorLabelProperty().set("Minimum length must be at least 1");
 			return;
 		}
 
