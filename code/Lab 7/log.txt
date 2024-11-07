@@ -1,0 +1,31 @@
+commit 61e8cc7afaae51e3d50957f12df0dc0cadfc8599
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Nov 6 22:49:06 2024 -0500
+
+    Binded view to view model
+    
+    1)Added a view model object in the view to connect it to the view model
+    2)Removed preexisting functionality
+    3)Binded appropriate text fields and labels to the properties in the view model
+    4)Added git hub repo text file
+    5)Made the error label bigger and the error messages smaller to properly display
+
+commit a3bb762a99b441994d8de16069be83ac5d9623d8
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Nov 6 19:25:55 2024 -0500
+
+    Added main window view model class
+    
+    1)Added appropriate properties like string and boolean properties to wrap the java fx functionality
+    2)Added getters for all of the properties
+    3)Added generate password method that takes the input given from the user and creates a new password
+    4)Added tests to ensure that the property changes are used in the method and error label generates correct error message
+    5)Also added a error label to the gui
+
+commit 429e8a5541333da98ac67a5eace2e01c05215be3
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sun Nov 3 20:40:39 2024 -0500
+
+    Add Lab 7 to repo
+    
+    1)Added lab 7 to repo

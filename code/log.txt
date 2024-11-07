@@ -1,3 +1,15 @@
+commit 61e8cc7afaae51e3d50957f12df0dc0cadfc8599
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Nov 6 22:49:06 2024 -0500
+
+    Binded view to view model
+    
+    1)Added a view model object in the view to connect it to the view model
+    2)Removed preexisting functionality
+    3)Binded appropriate text fields and labels to the properties in the view model
+    4)Added git hub repo text file
+    5)Made the error label bigger and the error messages smaller to properly display
+
 commit a3bb762a99b441994d8de16069be83ac5d9623d8
 Author: kd00250 <dearmank412@gmail.com>
 Date:   Wed Nov 6 19:25:55 2024 -0500
