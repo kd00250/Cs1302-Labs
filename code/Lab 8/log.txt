@@ -1,0 +1,28 @@
+commit ed5218156ad3a68f69e122c28dce2008de2d789b
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Nov 12 20:19:26 2024 -0500
+
+    Added list view to store passwords
+    
+    1)Added listview to the gui
+    2)Added listview property to the view model and intialized a array list inside of the listview simple property
+    3)Added functionality to generate password to add the password generated to the arraylist of passwords
+    4)Added tests to testGeneratePassword for adding the generated password to the passwords arraylist
+    5)Set passwords list view to the list of pastPasswords in the view model
+
+commit d44b4c7c9f6d39df499d640489da800e82f0c217
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Mon Nov 11 19:49:58 2024 -0500
+
+    Add input validation
+    
+    1)Added change listener to display error message when the input field is empty or not a number or is a negative number
+    2)Added error input label to display input error when regex expression is violated
+
+commit afc60c5cc71f88d64a4a84c08d1d6828d88a7d1d
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Nov 7 15:40:25 2024 -0500
+
+    Added lab 8
+    
+    1)Added lab 8 to repo
