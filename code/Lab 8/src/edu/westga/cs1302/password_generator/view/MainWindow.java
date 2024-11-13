@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 /**
@@ -25,7 +25,7 @@ public class MainWindow {
 	@FXML
 	private TextField minimumLength;
 	@FXML
-	private TextArea output;
+	private ListView<String> passwords;
 	@FXML
 	private Label errorTextLabel;
 	@FXML
@@ -44,7 +44,7 @@ public class MainWindow {
 		this.minimumLength.setText(this.vm.getMinimumLength().getValue());
 		this.vm.getMinimumLength().bind(this.minimumLength.textProperty());
 
-		this.output.textProperty().bind(this.vm.getPassword());
+		this.passwords.setItems(this.vm.getPastPasswords());
 		this.errorTextLabel.textProperty().bind(this.vm.getErrorText());
 
 		this.generatePasswordButton.setOnAction((event) -> {

@@ -1,12 +1,16 @@
 package edu.westga.cs1302.password_generator.viewmodel;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import edu.westga.cs1302.password_generator.model.PasswordGenerator;
 import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
 
 /**
  * Manages utilizing the model and makes properties available to bind the UI
@@ -23,6 +27,7 @@ public class ViewModel {
 
 	private StringProperty password;
 	private StringProperty errorText;
+	private ListProperty<String> pastPasswords;
 
 	private PasswordGenerator generator;
 
@@ -40,6 +45,8 @@ public class ViewModel {
 
 		Random randomNumberGenerator = new Random();
 		this.generator = new PasswordGenerator(randomNumberGenerator.nextLong());
+
+		this.pastPasswords = new SimpleListProperty<String>(FXCollections.observableArrayList(new ArrayList<String>()));
 	}
 
 	/**
@@ -97,6 +104,15 @@ public class ViewModel {
 	}
 
 	/**
+	 * return the list of past passwords
+	 * 
+	 * @return the list of past passwords
+	 */
+	public ListProperty<String> getPastPasswords() {
+		return this.pastPasswords;
+	}
+
+	/**
 	 * Generates a password using the minimum length, require digit, require lower
 	 * case, and require upper case property values.
 	 * 
@@ -132,6 +148,7 @@ public class ViewModel {
 		String password = this.generator.generatePassword();
 
 		this.password.setValue(password);
+		this.pastPasswords.add(password);
 	}
 
 }
