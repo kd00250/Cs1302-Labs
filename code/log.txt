@@ -1,3 +1,12 @@
+commit d81ab0154200333fdcc9e502496c934d2c52eb25
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Nov 12 20:31:30 2024 -0500
+
+    Completed Lab 8
+    
+    1)Added git hub repo link
+    2)Added commit history
+
 commit ed5218156ad3a68f69e122c28dce2008de2d789b
 Author: kd00250 <dearmank412@gmail.com>
 Date:   Tue Nov 12 20:19:26 2024 -0500
