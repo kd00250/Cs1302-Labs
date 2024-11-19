@@ -51,6 +51,7 @@ public class MainWindow {
 		this.vm.getRequireUppercase().bind(this.mustIncludeUpperCaseLetters.selectedProperty());
 		this.minimumLength.setText(this.vm.getMinimumLength().getValue());
 		this.vm.getMinimumLength().bind(this.minimumLength.textProperty());
+		this.setUpEnableControls();
 
 		this.output.textProperty().bind(this.vm.getPassword());
 		this.errorTextLabel.textProperty().bind(this.vm.getErrorText());
@@ -67,8 +68,12 @@ public class MainWindow {
 		this.aboutMenuItem.setOnAction((event) -> {
 			Alert popup = new Alert(Alert.AlertType.INFORMATION);
 			popup.setContentText(
-					"This Project generates a random password with the requirements based on the checkboxes selected.\n Author: Kenneth Dearman");
+					"This Project generates a random password with the requirements based on the checkboxes selected and the minimum length entered.\n Author: Kenneth Dearman");
 			popup.showAndWait();
 		});
+	}
+
+	private void setUpEnableControls() {
+		this.generatePasswordButton.disableProperty().bind(this.minimumLength.textProperty().isEmpty());
 	}
 }
