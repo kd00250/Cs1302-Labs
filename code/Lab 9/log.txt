@@ -1,0 +1,28 @@
+commit 85a8e975f8837241d77835def9f676bfbcb1a0c3
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Nov 19 18:54:58 2024 -0500
+
+    Added Disable/Enable button based on input
+    
+    1)Added private helper method to the main window that disables the generate password button if the minimum length text field is empty
+    2)Called the private helper method in the intialize
+
+commit 87a6769605724368122824b7bca74bee0feea8eb
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Mon Nov 18 16:45:03 2024 -0500
+
+    Added menu bar
+    
+    1)Added menu bar to gui (only one choice file)
+    2)Added menu items about and close to menu bar under file
+    3)Added functionality to allow for mnemonic parsing
+    4)Added set on action event for about to display a popup alert that informs the user about the purpose of the project and author
+    5)Added set on action event for close to close the gui window
+
+commit c4c3531f81775758baec03af57e9baa8e1eca21a
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Nov 14 15:23:27 2024 -0500
+
+    Add Lab 9
+    
+    1)Added Lab 9 to local repo
