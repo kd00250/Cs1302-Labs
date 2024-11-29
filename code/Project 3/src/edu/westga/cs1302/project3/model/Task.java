@@ -1,7 +1,7 @@
 package edu.westga.cs1302.project3.model;
 
 /**
- * The task class
+ * The task class that store information for a single task
  * 
  * @author CS 1302
  * @version Fall 2024
@@ -9,11 +9,11 @@ package edu.westga.cs1302.project3.model;
 public class Task {
 	private String title;
 	private String description;
-	
+
 	/**
 	 * Creates a new instance of task
 	 * 
-	 * @param title the title of the task
+	 * @param title       the title of the task
 	 * @param description the description of the task
 	 */
 	public Task(String title, String description) {
@@ -29,23 +29,27 @@ public class Task {
 		if (description.isBlank()) {
 			throw new IllegalArgumentException("Description cannot be blank");
 		}
-		
+
 		this.title = title;
 		this.description = description;
 	}
-	
+
 	/**
-	 * Gets title of the task 
+	 * Gets title of the task
 	 * 
+	 * @precondition none
+	 * @postcondition none
 	 * @return the title of the task
 	 */
 	public String getTitle() {
 		return this.title;
 	}
-	
+
 	/**
-	 * Gets the description of the task 
+	 * Gets the description of the task
 	 * 
+	 * @precondition none
+	 * @postcondition none
 	 * @return the description of the title
 	 */
 	public String getDescription() {
