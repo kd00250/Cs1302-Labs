@@ -10,17 +10,17 @@ import java.util.ArrayList;
  */
 public class TaskManager {
 	private ArrayList<Task> tasks;
-	
+
 	/**
 	 * Creates a new Instance of TaskManager
 	 */
 	public TaskManager() {
-		
+
 		this.tasks = new ArrayList<Task>();
 	}
-	
+
 	/**
-	 * Adds task to the tasks list 
+	 * Adds task to the tasks list
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -32,9 +32,9 @@ public class TaskManager {
 		}
 		this.tasks.add(task);
 	}
-	
+
 	/**
-	 * Removes task from the list 
+	 * Removes task from the list
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -46,7 +46,7 @@ public class TaskManager {
 		}
 		this.tasks.remove(task);
 	}
-	
+
 	/**
 	 * Gets the tasks and stores them in a array
 	 * 
