@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.NoSuchElementException;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,14 +15,14 @@ import edu.westga.cs1302.project3.model.Utility;
 class TestLoadTask {
 
 	@Test
-	void testEmptyFile() throws IOException {
+	void testEmptyFile() throws IOException, NoSuchElementException {
 		File file = new File("Tests.txt");
 		Utility.loadTask(file);
 		assertTrue(Utility.loadTask(file).size() == 0);
 	}
 
 	@Test
-	void testOneTaskFile() throws IOException {
+	void testOneTaskFile() throws IOException, NoSuchElementException {
 		TaskManager manager = new TaskManager();
 		Task task = new Task("Cheese", "And Crackers");
 		File file = new File("data.txt");
@@ -35,7 +36,7 @@ class TestLoadTask {
 	}
 
 	@Test
-	void testMultipleRecipeInFile() throws IOException {
+	void testMultipleTasksInFile() throws IOException, NoSuchElementException {
 		TaskManager manager = new TaskManager();
 		Task task = new Task("Cheese", "And Crackers");
 		Task task2 = new Task("Chess", "And Rook");

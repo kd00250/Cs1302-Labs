@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -24,7 +25,7 @@ public class Utility {
 	 * @param filePath the filePath to load the tasks from
 	 * @return arrayList of tasks
 	 */
-	public static ArrayList<Task> loadTask(File filePath) {
+	public static ArrayList<Task> loadTask(File filePath) throws NoSuchElementException {
 		if (filePath == null) {
 			throw new IllegalArgumentException("FilePath cannot be null.");
 		}

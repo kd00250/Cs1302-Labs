@@ -1,7 +1,12 @@
 package edu.westga.cs1302.project3.viewmodel;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
+
 import edu.westga.cs1302.project3.model.Task;
 import edu.westga.cs1302.project3.model.TaskManager;
+import edu.westga.cs1302.project3.model.Utility;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
@@ -46,17 +51,33 @@ public class MainWindowViewModel {
 	public ListProperty<Task> tasksProperty() {
 		return this.tasksProperty;
 	}
-
+	
 	/**
-	 * Removes the specified task from the list
+	 * Loads the tasks in a file
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @param task the task to be removed
+	 * @param filePath the file path to load from
 	 */
-	public void removeTask(Task task) {
-		this.tasksProperty.remove(task);
+	public void loadTasks(File filePath) throws NoSuchElementException {
+		ArrayList<Task> newTasks = Utility.loadTask(filePath);
+		for (Task currentTask : newTasks) {
+			this.tasksProperty.add(currentTask);
+		}
 	}
+
+//	/**
+//	 * Removes the specified task from the list
+//	 * 
+//	 * @precondition none
+//	 * @postcondition none
+//	 * 
+//	 * @param task the task to be removed
+//	 */
+//	public void removeTask(Task task) {
+//		this.tasksProperty.remove(task);
+//	}
+	
 
 }
