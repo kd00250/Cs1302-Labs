@@ -1,6 +1,8 @@
 package edu.westga.cs1302.project3.viewmodel;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -41,6 +43,15 @@ public class MainWindowViewModel {
 	}
 
 	/**
+	 * Gets the manager property
+	 * 
+	 * @return the manager property
+	 */
+	public TaskManager managerProperty() {
+		return this.manager;
+	}
+
+	/**
 	 * Gets the tasks property
 	 * 
 	 * @precondition none
@@ -51,7 +62,7 @@ public class MainWindowViewModel {
 	public ListProperty<Task> tasksProperty() {
 		return this.tasksProperty;
 	}
-	
+
 	/**
 	 * Loads the tasks in a file
 	 * 
@@ -60,24 +71,39 @@ public class MainWindowViewModel {
 	 * 
 	 * @param filePath the file path to load from
 	 */
-	public void loadTasks(File filePath) throws NoSuchElementException {
+	public void loadTasks(File filePath) throws NoSuchElementException, IOException {
 		ArrayList<Task> newTasks = Utility.loadTask(filePath);
 		for (Task currentTask : newTasks) {
 			this.tasksProperty.add(currentTask);
 		}
 	}
 
-//	/**
-//	 * Removes the specified task from the list
-//	 * 
-//	 * @precondition none
-//	 * @postcondition none
-//	 * 
-//	 * @param task the task to be removed
-//	 */
-//	public void removeTask(Task task) {
-//		this.tasksProperty.remove(task);
-//	}
-	
+	/**
+	 * Saves the task to the specified file
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @param manager  the manager that contains the tasks
+	 * @param filePath the filePath that will be written to
+	 * 
+	 * @throws IOException           when missing task title/description
+	 * @throws FileNotFoundException when the file does not exist
+	 */
+	public void saveTasks(TaskManager manager, File filePath) throws IOException {
+		Utility.writeTask(manager, filePath);
+	}
+
+	/**
+	 * Removes the specified task from the list
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @param task the task to be removed
+	 */
+	public void removeTask(Task task) {
+		this.tasksProperty.remove(task);
+	}
 
 }

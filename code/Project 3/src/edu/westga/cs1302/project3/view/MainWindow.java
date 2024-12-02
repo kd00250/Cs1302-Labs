@@ -1,6 +1,7 @@
 package edu.westga.cs1302.project3.view;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.NoSuchElementException;
 
 import edu.westga.cs1302.project3.model.Task;
@@ -15,102 +16,107 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
-/** Codebehind for the Main Window of the application.
+/**
+ * Codebehind for the Main Window of the application.
  * 
  * @author CS 1302
  * @version Fall 2024
  */
 public class MainWindow {
 
-    @FXML
-    private MenuItem aboutMenuItem;
+	@FXML
+	private MenuItem aboutMenuItem;
 
-    @FXML
-    private MenuItem addPeopleMenuItem;
+	@FXML
+	private MenuItem addPeopleMenuItem;
 
-    @FXML
-    private Button addTask;
+	@FXML
+	private Button addTask;
 
-    @FXML
-    private MenuItem addTaskMenuItem;
+	@FXML
+	private MenuItem addTaskMenuItem;
 
-    @FXML
-    private MenuItem closeMenuItem;
+	@FXML
+	private MenuItem closeMenuItem;
 
-    @FXML
-    private MenuItem loadTaskMenuItem;
+	@FXML
+	private MenuItem loadTaskMenuItem;
 
-    @FXML
-    private AnchorPane pane;
+	@FXML
+	private AnchorPane pane;
 
-    @FXML
-    private Button removeTask;
+	@FXML
+	private Button removeTask;
 
-    @FXML
-    private MenuItem saveTasksMenuItem;
+	@FXML
+	private MenuItem saveTasksMenuItem;
 
-    @FXML
-    private ListView<Task> tasks;
-    
-    private MainWindowViewModel vm;
+	@FXML
+	private ListView<Task> tasks;
 
-    @FXML
-    void initialize() {
-    	this.vm = new MainWindowViewModel();
-        this.tasks.setItems(this.vm.tasksProperty());
-        
-//        this.removeTask.setOnAction((event) -> {
-//        	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
-//        	if (selectedTask != null) {
-//        	this.vm.removeTask(selectedTask);
-//        	}
-//        
-//        });
-        
-        this.closeMenuItem.setOnAction((event) -> {
-			Stage stage = (Stage) (this.pane).getScene().getWindow();
-			stage.close(); 
+	private MainWindowViewModel vm;
+
+	private void displayErrorPopup(String message) {
+		Alert alert = new Alert(Alert.AlertType.ERROR);
+		alert.setContentText(message);
+		alert.showAndWait();
+	}
+
+	@FXML
+	void initialize() {
+		this.vm = new MainWindowViewModel();
+		this.tasks.setItems(this.vm.tasksProperty());
+		this.removeTask.setOnAction((event) -> {
+			Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+			if (selectedTask != null) {
+				this.vm.removeTask(selectedTask);
+			}
+
 		});
-        
-        this.loadTaskMenuItem.setOnAction((event) -> {
-        	FileChooser fileChooser = new FileChooser();
-        	fileChooser.setTitle("Open Image File");
-        	fileChooser.getExtensionFilters().addAll(
-        	new ExtensionFilter("Text Files", "*.txt"),
-        	new ExtensionFilter("All Files", "*.*"));
-        	File selectedFile = fileChooser.showOpenDialog(new Stage());
-        	if (!selectedFile.getName().endsWith(".txt")) {
-        		Alert popup = new Alert(Alert.AlertType.ERROR);
-    			popup.setContentText(
-    					"The File selected is not in the proper format. Please select a text file and try again.");
-    			popup.showAndWait();
-        	}
-        	if (selectedFile != null) {
-        		try {
-        			this.vm.loadTasks(selectedFile);
-        		} catch (IllegalArgumentException errorArg) {
-        			Alert popup = new Alert(Alert.AlertType.ERROR);
-        			popup.setContentText(
-        					"The selected file is in improper format. Please selected a text file and try again." + errorArg.getMessage());
-        			popup.showAndWait();
-        		} catch (NoSuchElementException errorElement) {
-        			Alert popup = new Alert(Alert.AlertType.ERROR);
-        			popup.setContentText(
-        					"The File selected is missing a title and/or a description for the task. Please fix the file and try again.");
-        			popup.showAndWait();
-        		}
-        	} 
-        });
-    
-        assert this.aboutMenuItem != null : "fx:id=\"aboutMenuItem\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.addPeopleMenuItem != null : "fx:id=\"addPeopleMenuItem\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.addTask != null : "fx:id=\"addTask\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.addTaskMenuItem != null : "fx:id=\"addTaskMenuItem\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.closeMenuItem != null : "fx:id=\"closeMenuItem\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.loadTaskMenuItem != null : "fx:id=\"loadTaskMenuItem\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.pane != null : "fx:id=\"pane\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.removeTask != null : "fx:id=\"removeTask\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.saveTasksMenuItem != null : "fx:id=\"saveTasksMenuItem\" was not injected: check your FXML file 'MainWindow.fxml'.";
-        assert this.tasks != null : "fx:id=\"tasks\" was not injected: check your FXML file 'MainWindow.fxml'.";  
-    }
+		this.closeMenuItem.setOnAction((event) -> {
+			Stage stage = (Stage) (this.pane).getScene().getWindow();
+			stage.close();
+		});
+		this.loadTaskMenuItem.setOnAction((event) -> {
+			FileChooser fileChooser = new FileChooser();
+			fileChooser.setTitle("Open Image File");
+			fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
+					new ExtensionFilter("All Files", "*.*"));
+			File selectedFile = fileChooser.showOpenDialog(new Stage());
+			if (!selectedFile.getName().endsWith(".txt")) {
+				this.displayErrorPopup(
+						"The File selected is not in the proper format. Please select a text file and try again.");
+			}
+			if (selectedFile != null) {
+				try {
+					try {
+						this.vm.loadTasks(selectedFile);
+					} catch (Exception errorIO) {
+						this.displayErrorPopup(errorIO.getMessage());
+					}
+				} catch (NoSuchElementException errorElement) {
+					this.displayErrorPopup(
+							"The File selected is missing a title and/or a description for the task. Please fix the file and try again.");
+				} 
+			}
+		});
+		this.saveTasksMenuItem.setOnAction((event) -> {
+			FileChooser fileChooser = new FileChooser();
+			fileChooser.setTitle("Open Image File");
+			fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
+					new ExtensionFilter("All Files", "*.*"));
+			File selectedFile = fileChooser.showOpenDialog(new Stage());
+			if (!selectedFile.getName().endsWith(".txt")) {
+				this.displayErrorPopup(
+						"The File selected cannot be written to. Please select a text file and try again.");
+			} else {
+				try {
+					this.vm.saveTasks(this.vm.managerProperty(), selectedFile);
+				} catch (IOException errorIO) {
+					this.displayErrorPopup(errorIO.getMessage());
+				}
+			}
+
+		});
+	}
 }

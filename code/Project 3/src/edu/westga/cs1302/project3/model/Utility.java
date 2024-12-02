@@ -25,7 +25,7 @@ public class Utility {
 	 * @param filePath the filePath to load the tasks from
 	 * @return arrayList of tasks
 	 */
-	public static ArrayList<Task> loadTask(File filePath) throws NoSuchElementException {
+	public static ArrayList<Task> loadTask(File filePath) throws NoSuchElementException, IOException {
 		if (filePath == null) {
 			throw new IllegalArgumentException("FilePath cannot be null.");
 		}
@@ -54,7 +54,7 @@ public class Utility {
 	 * @throws IOException           when missing task title/description
 	 * @throws FileNotFoundException when file does not exsist
 	 */
-	public static void writeTask(TaskManager manager, File filePath) throws IOException, FileNotFoundException {
+	public static void writeTask(TaskManager manager, File filePath) throws IOException {
 		if (filePath == null) {
 			throw new IllegalArgumentException("FilePath cannot be null.");
 		}
