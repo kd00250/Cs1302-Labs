@@ -75,6 +75,7 @@ public class MainWindowViewModel {
 		ArrayList<Task> newTasks = Utility.loadTask(filePath);
 		for (Task currentTask : newTasks) {
 			this.tasksProperty.add(currentTask);
+			this.manager.addTask(currentTask);
 		}
 	}
 

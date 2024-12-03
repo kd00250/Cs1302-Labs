@@ -61,6 +61,15 @@ public class MainWindow {
 		alert.setContentText(message);
 		alert.showAndWait();
 	}
+	
+	private File getFileChooserSelectedFile() {
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Open Image File");
+		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
+				new ExtensionFilter("All Files", "*.*"));
+		File selectedFile = fileChooser.showOpenDialog(new Stage());
+		return selectedFile;
+	}
 
 	@FXML
 	void initialize() {
@@ -78,20 +87,16 @@ public class MainWindow {
 			stage.close();
 		});
 		this.loadTaskMenuItem.setOnAction((event) -> {
-			FileChooser fileChooser = new FileChooser();
-			fileChooser.setTitle("Open Image File");
-			fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
-					new ExtensionFilter("All Files", "*.*"));
-			File selectedFile = fileChooser.showOpenDialog(new Stage());
-			if (!selectedFile.getName().endsWith(".txt")) {
-				this.displayErrorPopup(
-						"The File selected is not in the proper format. Please select a text file and try again.");
-			}
+			File selectedFile = this.getFileChooserSelectedFile();
 			if (selectedFile != null) {
+				if (!selectedFile.getName().endsWith(".txt")) {
+					this.displayErrorPopup(
+							"The File selected is not in the proper format. Please select a text file and try again.");
+				}
 				try {
 					try {
 						this.vm.loadTasks(selectedFile);
-					} catch (Exception errorIO) {
+					} catch (IOException errorIO) {
 						this.displayErrorPopup(errorIO.getMessage());
 					}
 				} catch (NoSuchElementException errorElement) {
@@ -101,11 +106,8 @@ public class MainWindow {
 			}
 		});
 		this.saveTasksMenuItem.setOnAction((event) -> {
-			FileChooser fileChooser = new FileChooser();
-			fileChooser.setTitle("Open Image File");
-			fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
-					new ExtensionFilter("All Files", "*.*"));
-			File selectedFile = fileChooser.showOpenDialog(new Stage());
+			File selectedFile = this.getFileChooserSelectedFile();
+			if (selectedFile != null) {
 			if (!selectedFile.getName().endsWith(".txt")) {
 				this.displayErrorPopup(
 						"The File selected cannot be written to. Please select a text file and try again.");
@@ -117,6 +119,7 @@ public class MainWindow {
 				}
 			}
 
+		}
 		});
 	}
 }
