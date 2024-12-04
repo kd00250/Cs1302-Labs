@@ -6,7 +6,6 @@ import java.util.NoSuchElementException;
 
 import edu.westga.cs1302.project3.Main;
 import edu.westga.cs1302.project3.model.Task;
-import edu.westga.cs1302.project3.viewmodel.AddTaskWindowViewModel;
 import edu.westga.cs1302.project3.viewmodel.MainWindowViewModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,7 +61,6 @@ public class MainWindow {
 	private ListView<Task> tasks;
 
 	private MainWindowViewModel vm;
-	private AddTaskWindowViewModel addTaskVM;
 
 	private void displayErrorPopup(String message) {
 		Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -92,7 +90,7 @@ public class MainWindow {
 			setAddTaskStage.initModality(Modality.APPLICATION_MODAL);
 			
 			AddTaskWindow addTaskCodebehind = (AddTaskWindow) loader.getController();
-			addTaskCodebehind.bindToVM(this.addTaskVM);
+			addTaskCodebehind.bindToVM(this.vm);
 			
 			setAddTaskStage.showAndWait();
 		} catch (IOException error) {

@@ -109,5 +109,4 @@ public class MainWindowViewModel {
 	public void removeTask(Task task) {
 		this.tasksProperty.remove(task);
 	}
-
 }
