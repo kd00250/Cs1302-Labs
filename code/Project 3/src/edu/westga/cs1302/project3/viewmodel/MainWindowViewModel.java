@@ -45,6 +45,9 @@ public class MainWindowViewModel {
 	/**
 	 * Gets the manager property
 	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
 	 * @return the manager property
 	 */
 	public TaskManager managerProperty() {
