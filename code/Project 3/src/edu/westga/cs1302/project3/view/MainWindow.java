@@ -104,12 +104,12 @@ public class MainWindow {
 	void initialize() {
 		this.vm = new MainWindowViewModel();
 		this.tasks.setItems(this.vm.tasksProperty());
-//		this.removeTask.setOnAction((event) -> {
-//			Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
-//			if (selectedTask != null) {
-//				this.vm.removeTask(selectedTask);
-//			}
-//		});
+		this.removeTask.setOnAction((event) -> {
+			Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+			if (selectedTask != null) {
+				this.vm.removeTask(selectedTask);
+			}
+		});
 		this.closeMenuItem.setOnAction((event) -> {
 			Stage stage = (Stage) (this.pane).getScene().getWindow();
 			stage.close();
