@@ -26,12 +26,13 @@ class TestRemoveTask {
 		taskManager.removeTask(task);
 
 		assertEquals(0, taskManager.getTasks().length);
+		assertFalse(taskManager.getTaskMap().containsKey(task.getTitle()));
 	}
 
 	@Test
 	void testRemoveTwoTasks() {
 		TaskManager taskManager = new TaskManager();
-		Task task1 = new Task("Apple", "Fruit");
+		Task task1 = new Task("Grapes", "Fruit");
 		Task task2 = new Task("Mango", "Fruit");
 		Task task3 = new Task("Apple", "Fruit");
 		
@@ -42,6 +43,8 @@ class TestRemoveTask {
 		taskManager.removeTask(task1);
 		taskManager.removeTask(task2);
 
+		assertFalse(taskManager.getTaskMap().containsKey(task1.getTitle()));
+		assertFalse(taskManager.getTaskMap().containsKey(task2.getTitle()));
 		assertEquals(1, taskManager.getTasks().length);
 		assertEquals(task3, taskManager.getTasks()[0]);
 		assertEquals("Apple", taskManager.getTasks()[0].getTitle());

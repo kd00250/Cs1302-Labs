@@ -20,11 +20,23 @@ class TestAddTask {
 	}
 	
 	@Test
+	void testAddDuplicateTask() {
+		TaskManager taskManager = new TaskManager();
+		Task task = new Task("Apple", "Fruit");
+		taskManager.addTask(task);
+
+		assertThrows(IllegalArgumentException.class, () -> {
+			taskManager.addTask(task);
+		});
+	}
+	
+	@Test
 	void testAddOneTasks() {
 		TaskManager taskManager = new TaskManager();
 		Task task = new Task("Apple", "Fruit");
 		taskManager.addTask(task);
 
+		assertTrue(taskManager.getTaskMap().containsKey(task.getTitle()));
 		assertEquals(1, taskManager.getTasks().length);
 		assertEquals(task, taskManager.getTasks()[0]);
 	}
@@ -38,6 +50,8 @@ class TestAddTask {
 		taskManager.addTask(task2);
 
 		assertEquals(2, taskManager.getTasks().length);
+		assertTrue(taskManager.getTaskMap().containsKey(task1.getTitle()));
+		assertTrue(taskManager.getTaskMap().containsKey(task2.getTitle()));
 		assertEquals(task1, taskManager.getTasks()[0]);
 		assertEquals("Apple", taskManager.getTasks()[0].getTitle());
 		assertEquals("Fruit", taskManager.getTasks()[0].getDescription());

@@ -32,7 +32,7 @@ public class AddTaskWindow {
 
 	@FXML
 	private AnchorPane pane;
-	
+
 	private AddTaskWindowViewModel addVM;
 
 	private void closeWindow() {
@@ -45,7 +45,7 @@ public class AddTaskWindow {
 		alert.setContentText(message);
 		alert.showAndWait();
 	}
-	
+
 	/**
 	 * Provides bindings for the functionality
 	 * 
@@ -60,8 +60,9 @@ public class AddTaskWindow {
 		});
 		this.addTask.setOnAction((event) -> {
 			try {
-		vm.tasksProperty().add(this.addVM.getCreatedTask());
-		this.closeWindow();
+				vm.managerProperty().addTask(this.addVM.getCreatedTask());
+				vm.tasksProperty().add(this.addVM.getCreatedTask());
+				this.closeWindow();
 			} catch (IllegalArgumentException errorArg) {
 				this.displayErrorPopup(errorArg.getMessage());
 			}

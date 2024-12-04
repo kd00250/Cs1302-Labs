@@ -107,6 +107,7 @@ public class MainWindowViewModel {
 	 * @param task the task to be removed
 	 */
 	public void removeTask(Task task) {
+		this.manager.removeTask(task);
 		this.tasksProperty.remove(task);
 	}
 }

@@ -1,6 +1,8 @@
 package edu.westga.cs1302.project3.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The system class that stores a set of tasks
@@ -10,6 +12,7 @@ import java.util.ArrayList;
  */
 public class TaskManager {
 	private ArrayList<Task> tasks;
+	private final Map<String, Task> taskMap;
 
 	/**
 	 * Creates a new Instance of TaskManager
@@ -17,20 +20,38 @@ public class TaskManager {
 	public TaskManager() {
 
 		this.tasks = new ArrayList<Task>();
+		this.taskMap = new HashMap<String, Task>();
 	}
-
+	
+	/**Gets the hash map of students
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the hash map of students
+	 */
+	public Map<String, Task> getTaskMap() {
+		return this.taskMap;
+	}
+	
 	/**
 	 * Adds task to the tasks list
 	 * 
 	 * @precondition none
 	 * @postcondition none
+	 * 
 	 * @param task the task to add
 	 */
 	public void addTask(Task task) {
 		if (task == null) {
 			throw new IllegalArgumentException("Cannot add null task.");
 		}
-		this.tasks.add(task);
+		if (this.taskMap.containsKey(task.getTitle())) {
+			throw new IllegalArgumentException("Cannot add duplicate tasks. Task Already exists.");
+		} else {
+			this.taskMap.put(task.getTitle(), task);
+			this.tasks.add(task);
+		}
 	}
 
 	/**
@@ -44,6 +65,7 @@ public class TaskManager {
 		if (task == null) {
 			throw new IllegalArgumentException("Cannot remove null task.");
 		}
+		this.taskMap.remove(task.getTitle());
 		this.tasks.remove(task);
 	}
 
