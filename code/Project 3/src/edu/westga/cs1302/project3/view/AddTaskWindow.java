@@ -3,6 +3,7 @@ package edu.westga.cs1302.project3.view;
 import edu.westga.cs1302.project3.viewmodel.AddTaskWindowViewModel;
 import edu.westga.cs1302.project3.viewmodel.MainWindowViewModel;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -38,8 +39,13 @@ public class AddTaskWindow {
 		Stage stage = (Stage) (this.pane).getScene().getWindow();
 		stage.close();
 	}
-	//private AddTaskWindowViewModel viewModel;
 
+	private void displayErrorPopup(String message) {
+		Alert alert = new Alert(Alert.AlertType.ERROR);
+		alert.setContentText(message);
+		alert.showAndWait();
+	}
+	
 	/**
 	 * Provides bindings for the functionality
 	 * 
@@ -53,8 +59,12 @@ public class AddTaskWindow {
 			this.closeWindow();
 		});
 		this.addTask.setOnAction((event) -> {
+			try {
 		vm.tasksProperty().add(this.addVM.getCreatedTask());
 		this.closeWindow();
+			} catch (IllegalArgumentException errorArg) {
+				this.displayErrorPopup(errorArg.getMessage());
+			}
 		});
 	}
 }

@@ -151,5 +151,8 @@ public class MainWindow {
 		this.addTask.setOnAction((event) -> {
 			this.getAddTaskWindow();
 		});
+		this.addTaskMenuItem.setOnAction((event) -> {
+			this.getAddTaskWindow();
+		});
 	}
 }
