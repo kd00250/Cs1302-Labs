@@ -15,7 +15,7 @@ class TestGetTasks {
 
 		assertEquals(0, taskManager.getTasks().length);
 	}
-	
+
 	@Test
 	void testOneTasks() {
 		TaskManager taskManager = new TaskManager();

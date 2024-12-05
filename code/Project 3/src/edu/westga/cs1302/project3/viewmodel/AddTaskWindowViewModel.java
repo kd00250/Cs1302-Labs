@@ -11,7 +11,7 @@ import javafx.beans.property.StringProperty;
  * @version Fall 2024
  */
 public class AddTaskWindowViewModel {
-	
+
 	private StringProperty title;
 	private StringProperty description;
 
@@ -26,7 +26,7 @@ public class AddTaskWindowViewModel {
 		this.title = new SimpleStringProperty("");
 		this.description = new SimpleStringProperty("");
 	}
-	
+
 	/**
 	 * Gets the title property
 	 * 
@@ -38,7 +38,7 @@ public class AddTaskWindowViewModel {
 	public StringProperty titleProperty() {
 		return this.title;
 	}
-	
+
 	/**
 	 * Gets the description property
 	 * 
@@ -50,8 +50,9 @@ public class AddTaskWindowViewModel {
 	public StringProperty descriptionProperty() {
 		return this.description;
 	}
-	
-	/**Gets the task from the title and description given by the user
+
+	/**
+	 * Gets the task from the title and description given by the user
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -62,8 +63,8 @@ public class AddTaskWindowViewModel {
 		String title = this.title.get();
 		String description = this.description.get();
 		Task task = new Task(title, description);
-		
+
 		return task;
 	}
-	
+
 }

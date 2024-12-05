@@ -22,8 +22,9 @@ public class TaskManager {
 		this.tasks = new ArrayList<Task>();
 		this.taskMap = new HashMap<String, Task>();
 	}
-	
-	/**Gets the hash map of students
+
+	/**
+	 * Gets the hash map of students
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -33,11 +34,11 @@ public class TaskManager {
 	public Map<String, Task> getTaskMap() {
 		return this.taskMap;
 	}
-	
+
 	/**
 	 * Adds task to the tasks list
 	 * 
-	 * @precondition none
+	 * @precondition task == null and !this.taskMap.containsKey(task.getTitle()
 	 * @postcondition none
 	 * 
 	 * @param task the task to add
@@ -57,7 +58,7 @@ public class TaskManager {
 	/**
 	 * Removes task from the list
 	 * 
-	 * @precondition none
+	 * @precondition task == null
 	 * @postcondition none
 	 * @param task the task to remove
 	 */

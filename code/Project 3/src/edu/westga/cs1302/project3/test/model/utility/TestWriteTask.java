@@ -22,7 +22,7 @@ class TestWriteTask {
 			Utility.writeTask(null, file);
 		});
 	}
-	
+
 	@Test
 	void testSaveNullFile() {
 		TaskManager manager = new TaskManager();
@@ -45,7 +45,6 @@ class TestWriteTask {
 		TaskManager manager = new TaskManager();
 		Task task1 = new Task("Cream", "Cheese Toast");
 		File file = new File("data.txt");
-		//file.wipeFile();
 		manager.addTask(task1);
 		Utility.writeTask(manager, file);
 
@@ -63,11 +62,10 @@ class TestWriteTask {
 		Task task1 = new Task("Cream", "Cheese Toast");
 		Task task2 = new Task("Cheat", "Cheese Toast");
 		File file = new File("Test.txt");
-		//file.wipeFile();
 		manager.addTask(task1);
 		manager.addTask(task2);
 		Utility.writeTask(manager, file);
-		
+
 		try (Scanner reader = new Scanner(file)) {
 			assertEquals("Cream", reader.nextLine());
 			assertEquals("Cheese Toast", reader.nextLine());
@@ -75,32 +73,7 @@ class TestWriteTask {
 			assertEquals("Cheese Toast", reader.nextLine());
 			assertFalse(reader.hasNextLine());
 		}
-		
 
 	}
-	
-
-//	@Test
-//	void testMultipleManagers() throws IOException {
-//		TaskManager manager = new TaskManager();
-//		TaskManager manager2 = new TaskManager();
-//		Task task1 = new Task("Cream", "Cheese Toast");
-//		Task task2 = new Task("Cheat", "Cheese Toast");
-//		File file = new File("Test2.txt");
-//		//file.wipeFile();
-//		manager.addTask(task1);
-//		manager2.addTask(task2);
-//		Utility.writeTask(manager, file);
-//		Utility
-//		
-//		try (Scanner reader = new Scanner(file)) {
-//			assertEquals("Cream", reader.nextLine());
-//			assertEquals("Cheese Toast", reader.nextLine());
-//			assertEquals("Cheat", reader.nextLine());
-//			assertEquals("Cheese Toast", reader.nextLine());
-//			assertFalse(reader.hasNextLine());
-//		}
-//
-//	}
 
 }

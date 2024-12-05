@@ -9,7 +9,6 @@ import edu.westga.cs1302.project3.model.TaskManager;
 
 class TestAddTask {
 
-
 	@Test
 	void testAddNullTask() {
 		TaskManager taskManager = new TaskManager();
@@ -18,7 +17,7 @@ class TestAddTask {
 			taskManager.addTask(null);
 		});
 	}
-	
+
 	@Test
 	void testAddDuplicateTask() {
 		TaskManager taskManager = new TaskManager();
@@ -29,7 +28,7 @@ class TestAddTask {
 			taskManager.addTask(task);
 		});
 	}
-	
+
 	@Test
 	void testAddOneTasks() {
 		TaskManager taskManager = new TaskManager();

@@ -17,7 +17,7 @@ class TestRemoveTask {
 			taskManager.removeTask(null);
 		});
 	}
-	
+
 	@Test
 	void testRemoveOneTask() {
 		TaskManager taskManager = new TaskManager();
@@ -35,11 +35,11 @@ class TestRemoveTask {
 		Task task1 = new Task("Grapes", "Fruit");
 		Task task2 = new Task("Mango", "Fruit");
 		Task task3 = new Task("Apple", "Fruit");
-		
+
 		taskManager.addTask(task1);
 		taskManager.addTask(task2);
 		taskManager.addTask(task3);
-		
+
 		taskManager.removeTask(task1);
 		taskManager.removeTask(task2);
 

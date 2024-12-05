@@ -46,7 +46,7 @@ public class Utility {
 	/**
 	 * Writes the tasks to a file
 	 * 
-	 * @precondition filePath == null && manager == null
+	 * @precondition filePath == null && manager == null && manager.getTasks().length != 0
 	 * @postcondition none
 	 * 
 	 * @param manager  the manager that contains the tasks

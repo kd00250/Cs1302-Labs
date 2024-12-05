@@ -77,8 +77,8 @@ public class MainWindowViewModel {
 	public void loadTasks(File filePath) throws NoSuchElementException, IOException {
 		ArrayList<Task> newTasks = Utility.loadTask(filePath);
 		for (Task currentTask : newTasks) {
-			this.tasksProperty.add(currentTask);
 			this.manager.addTask(currentTask);
+			this.tasksProperty.add(currentTask);
 		}
 	}
 

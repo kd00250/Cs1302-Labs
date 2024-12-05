@@ -13,6 +13,9 @@ public class Task {
 	/**
 	 * Creates a new instance of task
 	 * 
+	 * @precondition description != null && !description.isBlank() && title != null && !title.isBlank()
+	 * @postcondition none
+	 * 
 	 * @param title       the title of the task
 	 * @param description the description of the task
 	 */

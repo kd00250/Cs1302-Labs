@@ -76,7 +76,7 @@ public class MainWindow {
 		File selectedFile = fileChooser.showOpenDialog(new Stage());
 		return selectedFile;
 	}
-	
+
 	private void getAddTaskWindow() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(Main.ADD_TASK_WINDOW));
@@ -88,10 +88,10 @@ public class MainWindow {
 			setAddTaskStage.setTitle(Main.ADD_TASK_WINDOW_TITLE);
 			setAddTaskStage.setScene(scene);
 			setAddTaskStage.initModality(Modality.APPLICATION_MODAL);
-			
+
 			AddTaskWindow addTaskCodebehind = (AddTaskWindow) loader.getController();
 			addTaskCodebehind.bindToVM(this.vm);
-			
+
 			setAddTaskStage.showAndWait();
 		} catch (IOException error) {
 			Alert alert = new Alert(AlertType.ERROR);
@@ -130,6 +130,8 @@ public class MainWindow {
 				} catch (NoSuchElementException errorElement) {
 					this.displayErrorPopup(
 							"The File selected is missing a title and/or a description for the task. Please fix the file and try again.");
+				} catch (IllegalArgumentException errorArg) {
+					this.displayErrorPopup(errorArg.getMessage());
 				}
 			}
 		});
