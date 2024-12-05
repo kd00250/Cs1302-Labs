@@ -1,3 +1,175 @@
+commit 26ce29257253751e1828ef5656ef4389c623ca26
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Dec 4 21:13:21 2024 -0500
+
+    Fixed formating Errors
+    
+    1)Did control + F on each class to ensure correct format
+
+commit 020880e0d82e1a224c7f7a3233fb344dbd0fc418
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Dec 4 18:52:51 2024 -0500
+
+    Updated System to Not Allow Duplicate Tasks
+    
+    1)Added hashMap<String, Task> to taskManager class
+    2)Added getTaskMap to get the hashMap of tasks
+    3)Added put method to addTask functionality to add task to hashMap
+    4)Added remove method to removeTask functionality to remove task from hashMap
+    5)Added call to manager removeTask method in the mainWindow view model to remove task from hashMap
+    6)Added call to manager preoperty calling the addTask method to add getCreated task from the addVM viewModel in the AddTaskWindow
+    7)Added check to addTask method in taskManager class to check if the hashMap contains the task to be added
+
+commit 5a4a2259f3f8497dd454682a184ddc6e5bf96821
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Dec 3 23:19:28 2024 -0500
+
+    Fixed Uncaught Errors
+    
+    1)Fixed title and description causing errors from being blank
+    2)Added the addTaskMenuItem set on action to call get add task window
+
+commit 997f4f6eeae8eb6699ee53b2e97c140b8a385b13
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Dec 3 23:10:38 2024 -0500
+
+    Updated Gui to Remove Task
+    
+    1)Added the removeTask method to the main window view model
+    2)Added removeTask set on action that removes the selected task from the task List View
+
+commit 0bd9bad332bbb770413aed5c301bab14a30f6d4c
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Dec 3 23:05:15 2024 -0500
+
+    Updated Gui to Add Task
+    
+    1)Added getCreatedTask to AddTaskViewModel that returns the task created with the user input
+    2)Added bindings to the bindToVM method
+    3)Binded the titleProperty in the AddTaskViewModel to the to the title text field in the addTaskWindow
+    4)Binded description property to the description text area
+    5)Added the addTask set on action to add the task created by the getCreatedTask method and close the window
+    6)Added private helper method that closes the window
+
+commit 1f18d0122aa5820b1276d8ef8af0fd1c741c99ca
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Dec 3 20:34:30 2024 -0500
+
+    Update GUI to Cancel add task
+    
+    1)Added private helper method bind to vm to addTaskWindow
+    2)Added cancel set on action to bind to vm method to close window when cancel button is clicked
+    3)Added a call to bind to vm method in the mainWidow to make functionality accessible in mainWindow
+
+commit 13beec26d390cb950f74799d0b9030ed74432cba
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Dec 3 20:12:29 2024 -0500
+
+    Updated gui to display AddTaskWindow
+    
+    1)Added AddTaskWindowViewModel
+    2)Added StringProperty title and description
+    3)Added constructor with empty title and description
+    4)Added getters for title and description
+    5)Added fxml components to the AddTaskWindow
+    6)Added private helper method getAddTaskWindow that displays the add task window
+    7)Add addTask button set on action to call get add task window method
+
+commit 72507c10f91cab4f62fda6d2a964b8f58191ebad
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Dec 3 18:42:18 2024 -0500
+
+    Fixed format errors
+    
+    1)Fixed issues with load and save tasks using file chooser
+    2)Refactored file chooser into a private helper method
+    3)Fixed error popup message
+
+commit f4c7024bf48166af97c4e4b49a69aa40f332a601
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sun Dec 1 19:55:58 2024 -0500
+
+    Updated gui to save tasks
+    
+    1)Added save tasks on Action to allow the user to pick a file to save the tasks to a text file
+    2)Added saveTask method to the mainWindowViewModel
+
+commit 63b1d3311ee1416cb549f66436f266105b12ec08
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sun Dec 1 17:48:43 2024 -0500
+
+    Updated Gui To Load Tasks
+    
+    1)Added the loadTask method to the main window view model
+    2)Added tests to ensure correct functionality for loadTask method
+    3)Added loadTaskMenuItem on action to create a new instance of file chooser and allow the user to choose a file and will also display error popups if the format is messed up or if the wrong file type is selected
+
+commit 455b30c0bb8c729e9d6dd081cbb4d9adf9db5724
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sat Nov 30 22:40:30 2024 -0500
+
+    Implement Displaying Tasks
+    
+    1)Added fxml skeleton to the mainWindow
+    2)Added removeTask set on action to remove the selected task
+    3)Added close set on action to close the window
+    4)Added MainWindowViewModel class and constructor that initalizes with two default tasks in it
+    5)Added ListProperty to store a arrayList of tasks
+    6)Set the Listview to display the listProperty list
+
+commit 58b6b018bb6f0c5e389c31d5733d2b00df6e08bd
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Sat Nov 30 15:03:29 2024 -0500
+
+    Implemented Loading and Saving Tasks
+    
+    1)Added the Utility class
+    2)Added the static method loadTask that returns an arrayList of tasks
+    3)Added the static method writeTask that writes the task to a specificed file
+    4)Tested loadTask for correct functionality
+    5)Tested writeTask for correct functionality
+
+commit b6cdee01c74bb90e467424538addcf4195a6cd4e
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Fri Nov 29 18:35:11 2024 -0500
+
+    Added Managing tasks functionality
+    
+    1)Added taskManager class that stores a set of tasks in a arrayList
+    2)Added getTasks to return a array of the tasks in the arrayList
+    3)Added addTask to add specified task to the arrayList
+    4)Added removeTask to remove the specified task from the arrayList
+    5)Tested getTasks for correct functionality
+    6)Tested addTasks for correct functionality
+    7)Tested removeTasks for correct functionality
+
+commit b0b59fd2af733807e2dc197f54c53be9d5c5bf8a
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Thu Nov 28 15:12:30 2024 -0500
+
+    Implemented Storing tasks
+    
+    1)Added the task class to store a task that has a title and description
+    2)Added getters for title and description
+    3)Added constructor for task
+    4)Added tests to test functionality of the constructor
+
+commit 6dfe8323989c2d7a6c1c8d99260715b3a4015ba1
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Nov 27 12:06:02 2024 -0500
+
+    Added Project 3 to repo
+    
+    1)Added project 3 to repo
+
+commit dc39552e8b2ed261044bbbc137f3a1c2f2b5fa13
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Tue Nov 19 19:12:05 2024 -0500
+
+    Updated commit history
+    
+    1)Added last lab 9 commit to log.txt
+
 commit e89b5102267dc69d58c988149b28055c72e8ab53
 Author: kd00250 <dearmank412@gmail.com>
 Date:   Tue Nov 19 19:07:24 2024 -0500
