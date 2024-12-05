@@ -1,3 +1,12 @@
+commit 3ec24101bacf845d9bab7a535555c706399db8e7
+Author: kd00250 <dearmank412@gmail.com>
+Date:   Wed Dec 4 21:25:22 2024 -0500
+
+    Completed Project 3
+    
+    1)Added commit history
+    2)Added git hub repo link
+
 commit 26ce29257253751e1828ef5656ef4389c623ca26
 Author: kd00250 <dearmank412@gmail.com>
 Date:   Wed Dec 4 21:13:21 2024 -0500
